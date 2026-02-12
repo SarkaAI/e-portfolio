@@ -1,22 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My E-Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>Welcome to My E-Portfolio</h1>
-    </header>
-    <main>
-        <h2>About Me</h2>
-        <p>This is a small introduction about me.</p>
-    </main>
-    <footer>
-        <p>&copy; 2026 SarkaAI. All rights reserved.</p>
-        <!-- Removed social media links -->
-    </footer>
-</body>
+	<head>
+		<meta charset="utf-8">
+
+    <!-- 
+      TODO
+
+      Change the title in the <title> tag to whatever you would like the title of your portfolio to be
+
+      This should be the same across all pages.
+     -->
+    <link rel="icon" href="./assets/images/01.png" />
+		<title>Sarka's E-Portfolio</title>
+    <meta name="description" content="MSc Artificial Intelligence E-portfolio.">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/typography.css">
+    <link rel="stylesheet" href="./css/utilities.css">
+
+		<script defer src="./js/script.js"></script>
+	</head>
+	<body>
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <a class="nav-title-link" href="./index.html">
+        <!-- TODO - Change the "Portfolio Title" to whatever you want displayed in the top left -->
+        <span class="nav-title">
+      MSc<br>
+      Artificial<br>
+      Intelligence<br>
+      Student<br>
+      E-Portfolio
+    </span>
+         <!-- TODO - Change the email after 'mailto:' to your email address for contact -->
+        <a class="button" href="https://www.linkedin.com/in/sarka-/" target="_blank" rel="noopener">
+          <span class="button-text">Contact Me</span>
+        </a>
+      </a>
+    </div>
+
+    <!-- MAIN PAGE CONTENT -->
+    <div id="main-content">
+
+      <!-- PORTFOLIO HEADER -->
+      <div id="portfolio-header">
+        <div id="portfolio-header-image-container">
+          <!-- 
+            TODO
+
+            - Change the img "src" attribute to point to the Unemployable image you uploaded (or whatever image).
+            - Change the number to point to your Unemployable & replace the OpenSea link with your own
+            - If you aren't using an Unemployable as your image, remove the entire "a" element
+          -->
+          <img src="./assets/images/01.png" class="portfolio-header-image">
+          <a class="no-underline" target="_blank" href="">
+            <span class="image-caption">MSc Artificial Intelligence Student</span>
+          </a>
+        </div>
+
+          <!-- 
+            TODO
+
+            - Change the main-title to whatver you want
+            - Change the body-text after that to a quick introduction to what you do
+            - Edit the button text if you feel like it. It will link to the projects section below.
+          -->
+        <div id="portfolio-header-text-container">
+            <div class="header-text">
+              <span class="main-title">Hey, I'm Sharka.</span>
+              <div class="body-text">I'm ... Many things but here, I am a MSc Artificial Intelligence Student, for now .</div>
+            </div>
+            <a class="button" id="my-work-link">
+              <span class="button-text">Follow to My Modules</span> 
+              <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon"/>
+            </a>
+        </div>
+      </div>
+
+      <!-- ABOUT SECTION -->
+      <!-- 
+        TODO
+
+        - Change the subheader-text to whatever header you want
+        - Add paragraphs using the <div class="body-text"></div> elements in the "about-section-content"
+      -->
+      <div id="about-section">
+        <span class="subheader-text">My Background / About Me</span>
+        <div class="about-section-content">
+          <div class="body-text">I am currently pursuing an MSc in Artificial Intelligence with the University of Essex Online, building on a strong foundation as a senior security researcher in offensive cybersecurity. My academic journey explores key areas such as ethical AI, inclusive design, and explainable AI. I'm particularly interested in applying AI within cybersecurity and healthcare contexts, and I bring practical insight from years of hands-on experience with critical infrastructure or the dark web. This portfolio showcases my progress, reflections, and key artefacts developed throughout the programme.</div>
+        </div>
+      </div>
+
+      <!-- PROJECTS / MY WORK SECTION -->
+      <div id="my-work-section">
+        <!-- TODO - Change the subheader-text to whatever you want the Projects section header to say -->
+        <span class="subheader-text">Modules</span>
+
+        <div class="projects-container">
+          <!-- 
+            TODO
+
+            This is where the project cards live. Here's a base level project card for you to copy:
+            <div class="project-card">
+              <img src="./assets/images/IMAGE_NAME" class="project-image">
+              <div class="project-card-text-container">
+                <div class="subheader-text project-title">LAUNCH INTO COMPUTING</div>
+                <div class="body-text project-card-text">SMALL_PROJECT_DESCRIPTION</div>
+              </div>
+              <a class="button" href="./project-pages/PROJECT_PAGE_NAME.html">
+                <span class="button-text">Read More</span>
+                <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon"/>
+              </a>
+            </div>
+
+            - To add a project to the this area, copy the above, paste it below this comment, and change the following:
+                - IMAGE_NAME: the name of the image file in assets/images
+                - PROJECT_NAME: the name of the project (keep it short, it only shows 1 line)
+                - SMALL_PROJECT_DESCRIPTION: a quick project description (max 4 lines)
+                - PROJECT_PAGE_NAME.html: the html filename for the project (must be in project-pages folder)
+          -->
+          <div class="project-card">
+            <img src="./assets/images/desktop.jpeg" class="project-image">
+            <div class="project-card-text-container">
+              <div class="subheader-text project-title">LAUNCH INTO COMPUTING</div>
+              <div class="body-text project-card-text">This module provided a foundation in core computing principles and software development skills essential for further study in artificial intelligence. Key learning outcomes included developing proficiency in Python programming, understanding software architecture and data handling, and applying inclusive and ethical design principles. Emphasis was placed on recognising and reducing algorithmic bias, ensuring accessibility, and exploring techniques such as k-anonymity for privacy-preserving data analysis. Learners also gained practical experience in using tools to evaluate maintainability, scalability, and security of code. The module culminated in a final assignment involving the design and implementation of utility applications in both Python and JavaScript to compare development models and language features.</div>
+            </div>
+            <a class="button" href="./project-pages/project-template.html">
+              <span class="button-text">Read More</span>
+              <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon"/>
+            </a>
+          </div>
+          <div class="project-card">
+            <img src="./assets/images/undai.jpeg" class="project-image">
+            <div class="project-card-text-container">
+              <div class="subheader-text project-title">UNDERSTANDING ARTIFICIAL INTELLIGENCE</div>
+              <div class="body-text project-card-text">Explore the fundamentals of AI, including key concepts, algorithms, and applications shaping the future of technology.</div>
+            </div>
+            <a class="button" href="./project-pages/understanding-ai.html">
+              <span class="button-text">Read More</span>
+              <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon"/>
+            </a>
+          </div>
+          <div class="project-card">
+            <img src="./assets/images/numan.png" class="project-image">
+            <div class="project-card-text-container">
+              <div class="subheader-text project-title">NUMERICAL ANALYSIS</div>
+              <div class="body-text project-card-text">Master numerical methods and computational techniques for solving mathematical problems and scientific applications.</div>
+            </div>
+            <a class="button" href="./project-pages/numerical-analysis.html">
+              <span class="button-text">Read More</span>
+              <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon"/>
+            </a>
+          </div>
+          <div class="project-card">
+            <img src="./assets/images/ml.jpeg" class="project-image">
+            <div class="project-card-text-container">
+              <div class="subheader-text project-title">MACHINE LEARNING</div>
+              <div class="body-text project-card-text">Learn practical machine learning algorithms, model training, and deployment strategies for intelligent systems.</div>
+            </div>
+            <a class="button" href="./project-pages/machine-learning.html">
+              <span class="button-text">Read More</span>
+              <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon"/>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div id="footer">
+      <!-- 
+        TODO - Change href to your Instagram account (can also delete entire "a" element if no Instagram) 
+
+        This should be the same across all pages.
+      -->
+      <a class="icon-link" target="_blank" href="https://twitter.com/whitevans_eth">
+        <image src="./assets/icons/instagram.svg" class="footer-icon"/>
+      </a>
+      <!-- 
+        TODO - Change href to your Twitter account (can also delete entire "a" element if no Twitter) 
+      
+        This should be the same across all pages.
+      -->
+      <a class="icon-link" target="_blank" href="https://twitter.com/whitevans_eth">
+        <image src="./assets/icons/twitter.svg" class="footer-icon"/>
+      </a>
+      <!-- 
+        TODO - Change the email after "mailto" to your contact email 
+      
+        This should be the same across all pages.
+      -->
+      <a class="icon-link" href="mailto:me@a.com">
+        <image src="./assets/icons/mail.svg" class="footer-icon"/>
+      </a>
+    </div>
+
+	</body>
 </html>
