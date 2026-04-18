@@ -468,10 +468,3 @@ html {
     margin-top: 3em !important;
     margin-bottom: 3em !important;
 }
-/* Let project card titles wrap naturally and show full name */
-.project-title {
-    white-space: normal !important;
-    overflow: visible !important;
-    text-overflow: unset !important;
-    word-wrap: break-word;
-}
