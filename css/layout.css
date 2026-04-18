@@ -402,3 +402,35 @@ body {
         margin-right: 0;
     }
 }
+/* --- Contact Me dropdown --- */
+.contact-dropdown {
+    position: relative;
+    display: inline-block;
+}
+.contact-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    min-width: 140px;
+    margin-top: 8px;
+    overflow: hidden;
+    z-index: 1001;
+}
+.contact-dropdown:hover .contact-dropdown-menu {
+    display: block;
+}
+.contact-dropdown-menu a {
+    display: block;
+    padding: 10px 16px;
+    color: #000;
+    text-decoration: none;
+    font-size: 0.95em;
+}
+.contact-dropdown-menu a:hover {
+    background: #f5f5f5;
+}
