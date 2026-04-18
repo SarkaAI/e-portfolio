@@ -220,67 +220,33 @@ body {
 }
 /* --- Expandable module sub-sections --- */
 .module-section {
-    border-top: solid 1px rgba(0, 0, 0, 0.1);
-    padding: 2em 0;
+    max-width: 1200px;
+    margin: 3em auto;
+    padding: 0 2em;
 }
 .module-section .inner {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 2em;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2em;
+    display: block;
 }
 .module-section .inner img {
     width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: cover;
     border-radius: 4px;
     display: block;
+    margin-bottom: 1.5em;
+}
+.module-section .subheader-text {
+    margin-top: 0.5em;
+}
+.module-section .body-text {
+    margin-bottom: 1em;
 }
 .module-section .panel-content {
     display: none;
-    padding: 1.5em 2em;
+    padding-top: 1em;
+    margin-top: 1em;
     border-top: solid 1px rgba(0, 0, 0, 0.1);
-    margin-top: 1.5em;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.module-section.open .panel-content {
-    display: block;
-}
-.more-btn {
-    cursor: pointer;
-}
-@media screen and (max-width: 736px) {
-    .module-section .inner {
-        grid-template-columns: 1fr;
-    }
-}
-/* --- Expandable module sub-sections --- */
-.module-section {
-    border-top: solid 1px rgba(0, 0, 0, 0.1);
-    padding: 2em 0;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-.module-section .inner {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 2em;
-    align-items: center;
-    padding: 0 2em;
-}
-.module-section .inner img {
-    width: 100%;
-    border-radius: 4px;
-    display: block;
-}
-.module-section .panel-content {
-    display: none;
-    padding: 1.5em 2em 0;
-    border-top: solid 1px rgba(0, 0, 0, 0.1);
-    margin-top: 1.5em;
 }
 .module-section.open .panel-content {
     display: block;
@@ -288,11 +254,5 @@ body {
 .more-btn {
     cursor: pointer;
     display: inline-block;
-    margin-top: 1em;
+    margin-top: 0.5em;
 }
-@media screen and (max-width: 736px) {
-    .module-section .inner {
-        grid-template-columns: 1fr;
-    }
-}
-
