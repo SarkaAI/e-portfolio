@@ -220,7 +220,7 @@ body {
 }
 /* --- Expandable module sub-sections --- */
 .module-section {
-    margin: 0;
+    margin: 3em -425px;
     padding: 0;
     max-width: none;
 }
@@ -258,7 +258,7 @@ body {
 .module-section .panel-content {
     display: none;
     padding: 2em 5em;
-    border-top: solid 1px rgba(255, 255, 255, 0.15);
+    border-top: solid 1px rgba(0, 0, 0, 0.1);
 }
 .module-section.open .panel-content {
     display: block;
@@ -268,7 +268,31 @@ body {
     display: inline-block;
     align-self: flex-start;
 }
-@media screen and (max-width: 736px) {
+
+/* Responsive — match #main-content margins at each breakpoint */
+@media only screen and (max-width: 1600px) {
+    .module-section {
+        margin-left: -275px;
+        margin-right: -275px;
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .module-section {
+        margin-left: -175px;
+        margin-right: -175px;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .module-section {
+        margin-left: -75px;
+        margin-right: -75px;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .module-section {
+        margin-left: -50px;
+        margin-right: -50px;
+    }
     .module-section .inner {
         grid-template-columns: 1fr;
         min-height: auto;
@@ -281,5 +305,11 @@ body {
     }
     .module-section .panel-content {
         padding: 2em;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .module-section {
+        margin-left: -20px;
+        margin-right: -20px;
     }
 }
