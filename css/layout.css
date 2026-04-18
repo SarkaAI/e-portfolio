@@ -229,6 +229,32 @@ body {
 }
 
 
+/* --- Project Header: full-bleed image + left-aligned text --- */
+#project-header {
+    margin: 0 -375px !important;
+    padding: 0 !important;
+    align-items: stretch !important;
+}
+#project-header .main-title,
+#project-header .body-text {
+    padding: 0 !important;
+    margin-left: 0 !important;
+}
+.project-header-image {
+    width: 100% !important;
+    height: 450px !important;
+    object-fit: cover !important;
+    max-height: none !important;
+    margin: 0 !important;
+}
+
+/* --- Learning Outcomes: full-bleed, flush-left like images --- */
+#project-details {
+    margin: 0 -375px !important;
+    padding: 3em 0 !important;
+}
+
+
 /* --- Expandable module sub-sections --- */
 .module-section {
     margin: 0 -375px;
@@ -288,26 +314,63 @@ body {
     direction: ltr;
 }
 
-/* Responsive — align module section left edge with navbar title "S" */
+/* Collapse the 96px parent gap around module sections */
+#main-content {
+    gap: 0;
+}
+#main-content > *:not(.module-section) {
+    margin-bottom: 96px;
+}
+#main-content > *:not(.module-section) + .module-section {
+    margin-top: 0;
+}
+
+
+/* --- Responsive — align all full-bleed elements with browser edge --- */
 @media only screen and (max-width: 1600px) {
+    #project-header {
+        margin: 0 -225px !important;
+    }
+    #project-details {
+        margin: 0 -225px !important;
+    }
     .module-section {
         margin-left: -225px;
         margin-right: -225px;
     }
 }
 @media only screen and (max-width: 1200px) {
+    #project-header {
+        margin: 0 -125px !important;
+    }
+    #project-details {
+        margin: 0 -125px !important;
+    }
     .module-section {
         margin-left: -125px;
         margin-right: -125px;
     }
 }
 @media only screen and (max-width: 1000px) {
+    #project-header {
+        margin: 0 -25px !important;
+    }
+    #project-details {
+        margin: 0 -25px !important;
+    }
     .module-section {
         margin-left: -25px;
         margin-right: -25px;
     }
 }
 @media only screen and (max-width: 800px) {
+    #project-header {
+        margin: 0 -20px !important;
+    }
+    #project-details {
+        margin: 0 -20px !important;
+        padding: 2em 0 !important;
+    }
     .module-section {
         margin-left: -20px;
         margin-right: -20px;
@@ -327,96 +390,15 @@ body {
     }
 }
 @media only screen and (max-width: 600px) {
+    #project-header {
+        margin: 0 !important;
+    }
+    #project-details {
+        margin: 0 !important;
+        padding: 2em 0 !important;
+    }
     .module-section {
         margin-left: 0;
         margin-right: 0;
-    }
-}
-/* Collapse #main-content gap around module sections */
-#main-content {
-    gap: 0;
-}
-#main-content > *:not(.module-section) {
-    margin-bottom: 96px;
-}
-#main-content > *:not(.module-section) + .module-section {
-    margin-top: 0;
-}
-/* --- Project Header: full-bleed image + left-aligned text --- */
-#project-header {
-    margin: 0 -375px !important;
-    padding: 0 50px !important;
-    align-items: stretch !important;
-}
-#project-header .main-title,
-#project-header .body-text {
-    padding: 0 !important;
-    margin-left: 0 !important;
-}
-.project-header-image {
-    width: calc(100% + 100px) !important;
-    height: 450px !important;
-    object-fit: cover !important;
-    max-height: none !important;
-    margin: 0 -50px !important;
-}
-
-/* --- Learning Outcomes: left-aligned like navbar --- */
-#project-details {
-    margin: 0 -375px !important;
-    padding: 3em 50px !important;
-}
-
-/* Responsive — match navbar alignment at each breakpoint */
-@media only screen and (max-width: 1600px) {
-    #project-header {
-        margin: 0 -225px !important;
-    }
-    #project-details {
-        margin: 0 -225px !important;
-    }
-}
-@media only screen and (max-width: 1200px) {
-    #project-header {
-        margin: 0 -125px !important;
-    }
-    #project-details {
-        margin: 0 -125px !important;
-    }
-}
-@media only screen and (max-width: 1000px) {
-    #project-header {
-        margin: 0 -25px !important;
-    }
-    #project-details {
-        margin: 0 -25px !important;
-    }
-}
-@media only screen and (max-width: 800px) {
-    #project-header {
-        margin: 0 -20px !important;
-        padding: 0 30px !important;
-    }
-    .project-header-image {
-        width: calc(100% + 60px) !important;
-        margin: 0 -30px !important;
-    }
-    #project-details {
-        margin: 0 -20px !important;
-        padding: 2em 30px !important;
-    }
-}
-@media only screen and (max-width: 600px) {
-    #project-header {
-        margin: 0 !important;
-        padding: 0 20px !important;
-    }
-    .project-header-image {
-        width: calc(100% + 40px) !important;
-        margin: 0 -20px !important;
-    }
-    #project-details {
-        margin: 0 !important;
-        padding: 2em 20px !important;
     }
 }
