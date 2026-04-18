@@ -442,6 +442,6 @@ html {
 }
 /* Breathing room around the homepage pic */
 #portfolio-header {
-    margin-top: 2em;
-    margin-bottom: 2em;
+    margin-top: 3em !important;
+    margin-bottom: 3em !important;
 }
