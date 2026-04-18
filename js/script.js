@@ -5,11 +5,12 @@ if (document.getElementById('my-work-link')) {
 }
 // Expandable panels on module pages
 document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('more-btn')) {
-        e.preventDefault();
-        var section = e.target.closest('.module-section');
-        if (!section) return;
-        section.classList.toggle('open');
-        e.target.textContent = section.classList.contains('open') ? 'Less' : 'More';
-    }
+    var btn = e.target.closest('.more-btn');
+    if (!btn) return;
+    e.preventDefault();
+    var section = btn.closest('.module-section');
+    if (!section) return;
+    section.classList.toggle('open');
+    var textSpan = btn.querySelector('.button-text') || btn;
+    textSpan.textContent = section.classList.contains('open') ? 'Less' : 'More';
 });
