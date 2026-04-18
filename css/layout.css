@@ -21,7 +21,7 @@ body {
 /* Main Page Layout */
 
 #main-content {
-  margin: 225px 425px;
+  margin: 120px 425px;
   display: flex;
   flex-direction: column;
   gap: 96px;
@@ -175,28 +175,28 @@ body {
 /* Extra Extra large devices (large laptops and desktops, 1200px and below) */
 @media only screen and (max-width: 1600px) {
   #main-content {
-    margin: 225px 275px;
+    margin: 120px 275px;
   }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and below) */
 @media only screen and (max-width: 1200px) {
   #main-content {
-    margin: 225px 175px;
+    margin: 120px 175px;
   }
 }
 
 /* Large devices (laptops/desktops, 1000px and below) */
 @media only screen and (max-width: 1000px) {
   #main-content {
-    margin: 225px 75px;
+    margin: 120px 75px;
   }
 }
 
 /* Small devices (portrait tablets and large phones, 800px and below) */
 @media only screen and (max-width: 800px) {
   #main-content {
-    margin: 150px 50px;
+    margin: 90px 50px;
   }
 
   #portfolio-header {
@@ -211,16 +211,27 @@ body {
 /* Small devices (portrait tablets and large phones, 600px and below) */
 @media only screen and (max-width: 600px) {
   #main-content {
-    margin: 125px 20px;
+    margin: 80px 20px;
   }
 
   .project-card {
     max-width: 100%;
   }
 }
+
+
+/* --- Navbar — fixed on top, slim, always visible --- */
+.navbar {
+    padding: 15px 50px !important;
+    background-color: #ffffff;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+
 /* --- Expandable module sub-sections --- */
 .module-section {
-    margin: 3em -375px;
+    margin: 0 -375px;
     padding: 0;
     max-width: none;
 }
@@ -269,7 +280,15 @@ body {
     align-self: flex-start;
 }
 
-/* Responsive — align left edge with navbar title */
+/* Alternate layout — every 2nd module section swaps sides */
+.module-section.reverse .inner {
+    direction: rtl;
+}
+.module-section.reverse .inner > * {
+    direction: ltr;
+}
+
+/* Responsive — align module section left edge with navbar title "S" */
 @media only screen and (max-width: 1600px) {
     .module-section {
         margin-left: -225px;
@@ -312,17 +331,4 @@ body {
         margin-left: 0;
         margin-right: 0;
     }
-}
-/* Alternate layout — every 2nd module section swaps sides */
-.module-section.reverse .inner {
-    direction: rtl;
-}
-.module-section.reverse .inner > * {
-    direction: ltr;
-}
-/* Navbar — make sure it sits above all content */
-.navbar {
-    background-color: #ffffff;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
