@@ -235,14 +235,37 @@ body {
     padding: 0 !important;
     margin-left: 0 !important;
 }
+/* Header image with blurred backdrop */
+.project-header-image-wrapper {
+    width: 100%;
+    height: 450px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.project-header-image-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    background-size: cover;
+    background-position: center;
+    filter: blur(40px);
+    transform: scale(1.1);
+    z-index: 0;
+}
 .project-header-image {
+    position: relative;
+    z-index: 1;
     width: 100% !important;
-    height: 450px !important;
+    height: 100% !important;
     object-fit: contain !important;
     max-height: none !important;
     margin: 0 !important;
     display: block !important;
-    background: #0a1628 !important;
+    background: transparent !important;
 }
 
 /* --- Learning Outcomes: full-bleed, flush-left like images --- */
