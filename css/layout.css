@@ -344,88 +344,80 @@ body {
 }
 /* --- Project Header: full-bleed image + left-aligned text --- */
 #project-header {
-    margin: 0 -375px;
-    align-items: flex-start;
+    margin: 0 -375px !important;
+    padding: 0 !important;
+    align-items: stretch !important;
 }
 #project-header .main-title,
 #project-header .body-text {
-    padding: 0 0 0 375px;
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+    margin-left: 0 !important;
 }
 .project-header-image {
-    width: 100%;
-    height: 450px;
-    object-fit: cover;
-    max-height: none;
+    width: 100% !important;
+    height: 450px !important;
+    object-fit: cover !important;
+    max-height: none !important;
+    margin: 0 !important;
 }
+
 /* --- Learning Outcomes: left-aligned like navbar --- */
 #project-details {
-    margin: 0 -375px;
-    padding: 3em 375px;
+    margin: 0 -375px !important;
+    padding: 3em 50px !important;
 }
 
 /* Responsive — match navbar alignment at each breakpoint */
 @media only screen and (max-width: 1600px) {
     #project-header {
-        margin: 0 -225px;
-    }
-    #project-header .main-title,
-    #project-header .body-text {
-        padding-left: 225px;
+        margin: 0 -225px !important;
     }
     #project-details {
-        margin: 0 -225px;
-        padding: 3em 225px;
+        margin: 0 -225px !important;
     }
 }
 @media only screen and (max-width: 1200px) {
     #project-header {
-        margin: 0 -125px;
-    }
-    #project-header .main-title,
-    #project-header .body-text {
-        padding-left: 125px;
+        margin: 0 -125px !important;
     }
     #project-details {
-        margin: 0 -125px;
-        padding: 3em 125px;
+        margin: 0 -125px !important;
     }
 }
 @media only screen and (max-width: 1000px) {
     #project-header {
-        margin: 0 -25px;
-    }
-    #project-header .main-title,
-    #project-header .body-text {
-        padding-left: 25px;
+        margin: 0 -25px !important;
     }
     #project-details {
-        margin: 0 -25px;
-        padding: 3em 25px;
+        margin: 0 -25px !important;
     }
 }
 @media only screen and (max-width: 800px) {
     #project-header {
-        margin: 0 -20px;
+        margin: 0 -20px !important;
     }
     #project-header .main-title,
     #project-header .body-text {
-        padding-left: 20px;
+        padding-left: 30px !important;
+        padding-right: 30px !important;
     }
     #project-details {
-        margin: 0 -20px;
-        padding: 2em 20px;
+        margin: 0 -20px !important;
+        padding: 2em 30px !important;
     }
 }
 @media only screen and (max-width: 600px) {
     #project-header {
-        margin: 0;
+        margin: 0 !important;
     }
     #project-header .main-title,
     #project-header .body-text {
-        padding-left: 0;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
     }
     #project-details {
-        margin: 0;
-        padding: 2em 0;
+        margin: 0 !important;
+        padding: 2em 20px !important;
     }
 }
