@@ -342,3 +342,89 @@ body {
 #main-content > *:not(.module-section) + .module-section {
     margin-top: 0;
 }
+/* --- Project Header: full-bleed image + left-aligned text --- */
+#project-header {
+    margin: 0 -375px;
+}
+#project-header .main-title,
+#project-header .body-text {
+    padding: 0 0 0 375px;
+}
+.project-header-image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+/* --- Learning Outcomes: left-aligned like navbar --- */
+#project-details {
+    margin: 0 -375px;
+    padding: 3em 375px;
+}
+
+/* Responsive — match navbar alignment at each breakpoint */
+@media only screen and (max-width: 1600px) {
+    #project-header {
+        margin: 0 -225px;
+    }
+    #project-header .main-title,
+    #project-header .body-text {
+        padding-left: 225px;
+    }
+    #project-details {
+        margin: 0 -225px;
+        padding: 3em 225px;
+    }
+}
+@media only screen and (max-width: 1200px) {
+    #project-header {
+        margin: 0 -125px;
+    }
+    #project-header .main-title,
+    #project-header .body-text {
+        padding-left: 125px;
+    }
+    #project-details {
+        margin: 0 -125px;
+        padding: 3em 125px;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    #project-header {
+        margin: 0 -25px;
+    }
+    #project-header .main-title,
+    #project-header .body-text {
+        padding-left: 25px;
+    }
+    #project-details {
+        margin: 0 -25px;
+        padding: 3em 25px;
+    }
+}
+@media only screen and (max-width: 800px) {
+    #project-header {
+        margin: 0 -20px;
+    }
+    #project-header .main-title,
+    #project-header .body-text {
+        padding-left: 20px;
+    }
+    #project-details {
+        margin: 0 -20px;
+        padding: 2em 20px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    #project-header {
+        margin: 0;
+    }
+    #project-header .main-title,
+    #project-header .body-text {
+        padding-left: 0;
+    }
+    #project-details {
+        margin: 0;
+        padding: 2em 0;
+    }
+}
