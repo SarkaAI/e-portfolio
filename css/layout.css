@@ -436,10 +436,10 @@ body {
 }
 /* --- Scroll offset for fixed navbar --- */
 html {
-    scroll-padding-top: 60px !important;
+    scroll-padding-top: 100px !important;
     scroll-behavior: smooth;
 }
 
 #my-work-section {
-    scroll-margin-top: 60px !important;
+    scroll-margin-top: 100px !important;
 }
