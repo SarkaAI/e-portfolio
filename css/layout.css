@@ -439,3 +439,8 @@ html {
 #my-work-section {
     scroll-margin-top: 100px !important;
 }
+/* Breathing room around the homepage pic */
+#portfolio-header {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
