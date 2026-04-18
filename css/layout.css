@@ -332,3 +332,13 @@ body {
         margin-right: 0;
     }
 }
+/* Collapse #main-content gap around module sections */
+#main-content {
+    gap: 0;
+}
+#main-content > *:not(.module-section) {
+    margin-bottom: 96px;
+}
+#main-content > *:not(.module-section) + .module-section {
+    margin-top: 0;
+}
