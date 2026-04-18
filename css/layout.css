@@ -320,3 +320,9 @@ body {
 .module-section.reverse .inner > * {
     direction: ltr;
 }
+/* Navbar — make sure it sits above all content */
+.navbar {
+    background-color: #ffffff;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
