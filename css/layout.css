@@ -124,11 +124,6 @@ body {
   gap: 16px;
 }
 
-.project-header-image {
-  width: 100%;
-  height: auto;
-}
-
 #project-details {
   display: flex;
   flex-direction: column;
@@ -242,10 +237,11 @@ body {
 }
 .project-header-image {
     width: 100% !important;
-    height: 450px !important;
-    object-fit: cover !important;
+    height: auto !important;
+    object-fit: contain !important;
     max-height: none !important;
     margin: 0 !important;
+    display: block !important;
 }
 
 /* --- Learning Outcomes: full-bleed, flush-left like images --- */
