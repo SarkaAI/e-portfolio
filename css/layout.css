@@ -237,11 +237,12 @@ body {
 }
 .project-header-image {
     width: 100% !important;
-    height: auto !important;
+    height: 450px !important;
     object-fit: contain !important;
     max-height: none !important;
     margin: 0 !important;
     display: block !important;
+    background: #0a1628 !important;
 }
 
 /* --- Learning Outcomes: full-bleed, flush-left like images --- */
