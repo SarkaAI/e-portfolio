@@ -434,3 +434,7 @@ body {
 .contact-dropdown-menu a:hover {
     background: #f5f5f5;
 }
+/* --- Scroll offset for fixed navbar --- */
+html {
+    scroll-padding-top: 100px;
+}
