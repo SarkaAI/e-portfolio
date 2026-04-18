@@ -220,7 +220,7 @@ body {
 }
 /* --- Expandable module sub-sections --- */
 .module-section {
-    margin: 3em -425px;
+    margin: 3em -375px;
     padding: 0;
     max-width: none;
 }
@@ -269,29 +269,29 @@ body {
     align-self: flex-start;
 }
 
-/* Responsive — match #main-content margins at each breakpoint */
+/* Responsive — align left edge with navbar title */
 @media only screen and (max-width: 1600px) {
     .module-section {
-        margin-left: -275px;
-        margin-right: -275px;
+        margin-left: -225px;
+        margin-right: -225px;
     }
 }
 @media only screen and (max-width: 1200px) {
     .module-section {
-        margin-left: -175px;
-        margin-right: -175px;
+        margin-left: -125px;
+        margin-right: -125px;
     }
 }
 @media only screen and (max-width: 1000px) {
     .module-section {
-        margin-left: -75px;
-        margin-right: -75px;
+        margin-left: -25px;
+        margin-right: -25px;
     }
 }
 @media only screen and (max-width: 800px) {
     .module-section {
-        margin-left: -50px;
-        margin-right: -50px;
+        margin-left: -20px;
+        margin-right: -20px;
     }
     .module-section .inner {
         grid-template-columns: 1fr;
@@ -309,7 +309,7 @@ body {
 }
 @media only screen and (max-width: 600px) {
     .module-section {
-        margin-left: -20px;
-        margin-right: -20px;
+        margin-left: 0;
+        margin-right: 0;
     }
 }
