@@ -313,3 +313,10 @@ body {
         margin-right: 0;
     }
 }
+/* Alternate layout — every 2nd module section swaps sides */
+.module-section.reverse .inner {
+    direction: rtl;
+}
+.module-section.reverse .inner > * {
+    direction: ltr;
+}
