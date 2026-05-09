@@ -1,168 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-
-    <
+<head>
+    <meta charset="utf-8">
     <link rel="icon" href="./assets/images/01.png" />
-		<title>Sarka's E-Portfolio</title>
+    <title>Sarka's E-Portfolio</title>
     <meta name="description" content="MSc Artificial Intelligence E-portfolio.">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/layout.css">
     <link rel="stylesheet" href="./css/typography.css">
     <link rel="stylesheet" href="./css/utilities.css">
 
-		<script defer src="./js/script.js"></script>
-	</head>
-	<body>
+    <script defer src="./js/script.js"></script>
+</head>
+<body>
     <!-- NAVBAR -->
     <div class="navbar">
-      <a class="nav-title-link" href="./index.html">
-        <span class="nav-title">
-      MSc<br>
-      Artificial<br>
-      Intelligence<br>
-      Student<br>
-      E-Portfolio
-    </span>
-         
-        <div class="contact-dropdown">
-    <a class="button" href="#">
-        <span class="button-text">Contact Me</span>
-    </a>
-    <div class="contact-dropdown-menu">
-        <a href="https://www.linkedin.com/in/sarka-/" target="_blank">LinkedIn</a>
-        <a href="mailto:sp.studentmail@gmail.com">Email</a>
-    </div>
-</div>
-      </a>
+        <a class="nav-title-link" href="./index.html">
+            <span class="nav-title">
+                MSc<br>
+                Artificial<br>
+                Intelligence<br>
+                Student<br>
+                E-Portfolio
+            </span>
+            <div class="contact-dropdown">
+                <a class="button" href="#">
+                    <span class="button-text">Contact Me</span>
+                </a>
+                <div class="contact-dropdown-menu">
+                    <a href="https://www.linkedin.com/in/sarka-/" target="_blank">LinkedIn</a>
+                    <a href="mailto:sp.studentmail@gmail.com">Email</a>
+                </div>
+            </div>
+        </a>
     </div>
 
     <!-- MAIN PAGE CONTENT -->
     <div id="main-content">
 
-      <!-- PORTFOLIO HEADER -->
-      <div id="portfolio-header">
-        <div id="portfolio-header-image-container">
-          <
-          <img src="./assets/images/01.png" class="portfolio-header-image">
-          
+        <!-- PORTFOLIO HEADER -->
+        <div id="portfolio-header">
+            <div id="portfolio-header-image-container">
+                <img src="./assets/images/01.png" class="portfolio-header-image">
+            </div>
+            <div id="portfolio-header-text-container">
+                <div class="header-text">
+                    <div class="main-title">Hi, my name is Šárka <span style="font-weight: 400; font-size: 0.5em; color: #666;">/ˈʃaːrka/ ("SHAR-kah")</span></div>
+                    <div class="body-text">I'm ... Many things but here, I am a MSc Artificial Intelligence Student, for now.</div>
+                </div>
+                <a class="button" href="#my-work-section">
+                    <span class="button-text">Follow to My Modules</span>
+                    <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon"/>
+                </a>
+            </div>
         </div>
 
-          
-        <div id="portfolio-header-text-container">
-            <div class="header-text">
-              <div class="main-title">Hi, my name is Šárka <span style="font-weight: 400; font-size: 0.5em; color: #666;">/ˈʃaːrka/ ("SHAR-kah")</span></div>
-              <div class="body-text">I'm ... Many things but here, I am a MSc Artificial Intelligence Student, for now .</div>
+        <!-- ABOUT SECTION -->
+        <div id="about-section">
+            <span class="subheader-text">My Background / About Me</span>
+            <div class="about-section-content">
+                <div class="body-text">I am currently pursuing an MSc in Artificial Intelligence with the University of Essex Online, building on a strong foundation as a senior security researcher in offensive cybersecurity. My academic journey explores key areas such as ethical AI, inclusive design, and explainable AI. I'm particularly interested in applying AI within cybersecurity and healthcare contexts, and I bring practical insight from years of hands-on experience with critical infrastructure or the dark web. This portfolio showcases my progress, reflections, and key artefacts developed throughout the programme.</div>
             </div>
-				<a class="button" href="#my-work-section">
-				    <span class="button-text">Follow to My Modules</span>
-				    <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon"/>
-				</a>
         </div>
-      </div>
 
-      <!-- ABOUT SECTION -->
-      
-      <div id="about-section">
-        <span class="subheader-text">My Background / About Me</span>
-        <div class="about-section-content">
-          <div class="body-text">I am currently pursuing an MSc in Artificial Intelligence with the University of Essex Online, building on a strong foundation as a senior security researcher in offensive cybersecurity. My academic journey explores key areas such as ethical AI, inclusive design, and explainable AI. I'm particularly interested in applying AI within cybersecurity and healthcare contexts, and I bring practical insight from years of hands-on experience with critical infrastructure or the dark web. This portfolio showcases my progress, reflections, and key artefacts developed throughout the programme.</div>
-        </div>
-      </div>
+        <!-- MODULES -->
+        <div id="my-work-section">
+            <span class="subheader-text">Modules</span>
 
-      <!-- PROJECTS / MY WORK SECTION -->
-      <div id="my-work-section">
-        <!-- TODO - Change the subheader-text to whatever you want the Projects section header to say -->
-        <span class="subheader-text">Modules</span>
+            <div class="projects-container">
 
-        <div class="projects-container">
-          <!-- 
-            TODO
+                <div class="project-card">
+                    <img src="./assets/images/launch-into-computing.jpg" class="project-image">
+                    <div class="project-card-text-container">
+                        <div class="subheader-text project-title">LAUNCH INTO COMPUTING</div>
+                        <div class="body-text project-card-text">A foundation in core computing principles and software development skills, including Python programming, software architecture, ethical design, and privacy-preserving techniques.</div>
+                    </div>
+                    <a class="button" href="./project-pages/launch-into-computing.html">
+                        <span class="button-text">Read More</span>
+                        <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon"/>
+                    </a>
+                </div>
 
-            This is where the project cards live. Here's a base level project card for you to copy:
-            <div class="project-card">
-              <img src="./assets/images/IMAGE_NAME" class="project-image">
-              <div class="project-card-text-container">
-                <div class="subheader-text project-title">LAUNCH INTO COMPUTING</div>
-                <div class="body-text project-card-text">SMALL_PROJECT_DESCRIPTION</div>
-              </div>
-              <a class="button" href="./project-pages/PROJECT_PAGE_NAME.html">
-                <span class="button-text">Read More</span>
-                <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon"/>
-              </a>
-            </div>
+                <div class="project-card">
+                    <img src="./assets/images/understanding-ai.jpg" class="project-image">
+                    <div class="project-card-text-container">
+                        <div class="subheader-text project-title">UNDERSTANDING ARTIFICIAL INTELLIGENCE</div>
+                        <div class="body-text project-card-text">Explore the fundamentals of AI, including key concepts, algorithms, and applications shaping the future of technology.</div>
+                    </div>
+                    <a class="button" href="./project-pages/understanding-ai.html">
+                        <span class="button-text">Read More</span>
+                        <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon"/>
+                    </a>
+                </div>
 
-            - To add a project to the this area, copy the above, paste it below this comment, and change the following:
-                - IMAGE_NAME: the name of the image file in assets/images
-                - PROJECT_NAME: the name of the project (keep it short, it only shows 1 line)
-                - SMALL_PROJECT_DESCRIPTION: a quick project description (max 4 lines)
-                - PROJECT_PAGE_NAME.html: the html filename for the project (must be in project-pages folder)
-          -->
-          <div class="project-card">
-            <img src="./assets/images/launch-into-computing.jpg" class="project-image">
-            <div class="project-card-text-container">
-              <div class="subheader-text project-title">LAUNCH INTO COMPUTING</div>
-              <div class="body-text project-card-text">This module provided a foundation in core computing principles and software development skills essential for further study in artificial intelligence. Key learning outcomes included developing proficiency in Python programming, understanding software architecture and data handling, and applying inclusive and ethical design principles. Emphasis was placed on recognising and reducing algorithmic bias, ensuring accessibility, and exploring techniques such as k-anonymity for privacy-preserving data analysis. Learners also gained practical experience in using tools to evaluate maintainability, scalability, and security of code. The module culminated in a final assignment involving the design and implementation of utility applications in both Python and JavaScript to compare development models and language features.</div>
-            </div>
-            <a class="button" href="./project-pages/launch-into-computing.html">
-              <span class="button-text">Read More</span>
-              <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon"/>
-            </a>
-          </div>
-          <div class="project-card">
-            <img src="./assets/images/understanding-ai.jpg" class="project-image">
-            <div class="project-card-text-container">
-              <div class="subheader-text project-title">UNDERSTANDING ARTIFICIAL INTELLIGENCE</div>
-              <div class="body-text project-card-text">Explore the fundamentals of AI, including key concepts, algorithms, and applications shaping the future of technology.</div>
-            </div>
-            <a class="button" href="./project-pages/understanding-ai.html">
-              <span class="button-text">Read More</span>
-              <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon"/>
-            </a>
-          </div>
-          <div class="project-card">
-            <img src="./assets/images/numerical-analysis.jpg" class="project-image">
-            <div class="project-card-text-container">
-              <div class="subheader-text project-title">NUMERICAL ANALYSIS</div>
-              <div class="body-text project-card-text">Master numerical methods and computational techniques for solving mathematical problems and scientific applications.</div>
-            </div>
-            <a class="button" href="./project-pages/numerical-analysis.html">
-              <span class="button-text">Read More</span>
-              <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon"/>
-            </a>
-          </div>
-          <div class="project-card">
-            <img src="./assets/images/machine-learning.jpg" class="project-image">
-            <div class="project-card-text-container">
-              <div class="subheader-text project-title">MACHINE LEARNING</div>
-              <div class="body-text project-card-text">Learn practical machine learning algorithms, model training, and deployment strategies for intelligent systems.</div>
-            </div>
-            <a class="button" href="./project-pages/machine-learning.html">
-              <span class="button-text">Read More</span>
-              <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon"/>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+                <div class="project-card">
+                    <img src="./assets/images/numerical-analysis.jpg" class="project-image">
+                    <div class="project-card-text-container">
+                        <div class="subheader-text project-title">NUMERICAL ANALYSIS</div>
+                        <div class="body-text project-card-text">Master numerical methods and computational techniques for solving mathematical problems and scientific applications.</div>
+                    </div>
+                    <a class="button" href="./project-pages/numerical-analysis.html">
+                        <span class="button-text">Read More</span>
+                        <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon"/>
+                    </a>
+                </div>
 
-		<div class="project-card">
-    <img src="./assets/images/intelligent-agents.jpg" class="project-image">
-    <div class="project-card-text-container">
-        <div class="subheader-text project-title">INTELLIGENT AGENTS</div>
-        <div class="body-text project-card-text">Explore agent-based computing — autonomous systems that perceive their environment and act to achieve goals across real-world domains.</div>
-    </div>
-    <a class="button" href="./project-pages/intelligent-agents.html">
-        <span class="button-text">Read More</span>
-        <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon"/>
-    </a>
-</div>
-<!-- FOOTER -->
-<div id="footer" style="text-align: center; padding: 2em; font-size: 0.9em; color: #666;">
-    © 2026 Sarka — MSc Artificial Intelligence, University of Essex Online
-</div>
+                <div class="project-card">
+                    <img src="./assets/images/machine-learning.jpg" class="project-image">
+                    <div class="project-card-text-container">
+                        <div class="subheader-text project-title">MACHINE LEARNING</div>
+                        <div class="body-text project-card-text">Learn practical machine learning algorithms, model training, and deployment strategies for intelligent systems.</div>
+                    </div>
+                    <a class="button" href="./project-pages/machine-learning.html">
+                        <span class="button-text">Read More</span>
+                        <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon"/>
+                    </a>
+                </div>
 
-	</body>
-</html>
+                <div class="project-card">
+                    <img src="./assets/images/intelligent-agents.jpg" class="project-image">
+                    <div class="project-card-text-container">
+                        <div class="subheader-text project-title">INTELLIGENT AGENTS</div>
+                        <div class="body-text project-card-text">Explore agent-based computing — autonomous systems that perceive their environment and act to achieve goals across real-world domains.</div>
+                    </div>
+                    <a class="button" href="./project-pages/intelligent-agents.html">
+                        <span class="button-text">R
