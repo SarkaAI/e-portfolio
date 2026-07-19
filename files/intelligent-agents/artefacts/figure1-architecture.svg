@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 780" font-family="Helvetica, Arial, sans-serif">
+  <!-- Figure 1: high-level architecture as actually built (masra/graph.py,
+       masra/config.py). Eight agents on a LangGraph StateGraph, one shared
+       ResearchState blackboard, a knowledge layer of three academic APIs
+       plus ChromaDB, and a local Ollama model layer. -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="780" fill="#ffffff"/>
+
+  <!-- user and output -->
+  <rect x="60" y="24" width="250" height="54" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+  <text x="185" y="47" text-anchor="middle" font-size="15" font-weight="bold" fill="#0f172a">User</text>
+  <text x="185" y="66" text-anchor="middle" font-size="13" fill="#334155">high-level research goal</text>
+
+  <rect x="650" y="24" width="250" height="54" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+  <text x="775" y="47" text-anchor="middle" font-size="15" font-weight="bold" fill="#0f172a">Final report artefact</text>
+  <text x="775" y="66" text-anchor="middle" font-size="13" fill="#334155">report + verdicts + confidence + XAI + sources</text>
+
+  <line x1="185" y1="78" x2="185" y2="120" stroke="#334155" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="775" y1="120" x2="775" y2="78" stroke="#334155" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- orchestration layer -->
+  <rect x="40" y="120" width="880" height="330" rx="10" fill="#f8fafc" stroke="#64748b" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="60" y="148" font-size="15" font-weight="bold" fill="#0f172a">Orchestration layer: LangGraph StateGraph (build_core_graph)</text>
+  <text x="60" y="164" font-size="12.5" fill="#475569">The proposal's 8 agent roles as 9 nodes; loop detail in Figure 2</text>
+  <text x="60" y="180" font-size="11.5" fill="#475569" font-style="italic">* one proposal role, Final Synthesis, deliberately split in two: generative report writer (4) + deterministic assembler (9)</text>
+
+  <!-- agent grid: row 1 -->
+  <g font-size="13.5" text-anchor="middle">
+    <rect x="65"  y="185" width="195" height="62" rx="7" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="162" y="211" font-weight="bold" fill="#1e3a8a">1. Planner</text>
+    <text x="162" y="230" fill="#1e3a8a">goal to 2-6 sub-questions</text>
+
+    <rect x="275" y="185" width="195" height="62" rx="7" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+    <text x="372" y="211" font-weight="bold" fill="#78350f">2. Research</text>
+    <text x="372" y="230" fill="#78350f">API search, dedup, scoring</text>
+
+    <rect x="485" y="185" width="195" height="62" rx="7" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="582" y="211" font-weight="bold" fill="#1e3a8a">3. Summarise</text>
+    <text x="582" y="230" fill="#1e3a8a">grounded per-question answers</text>
+
+    <rect x="695" y="185" width="195" height="62" rx="7" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="792" y="211" font-weight="bold" fill="#1e3a8a">4. Synthesis *</text>
+    <text x="792" y="230" fill="#1e3a8a">summaries to one report</text>
+  </g>
+
+  <!-- agent grid: row 2 (5 boxes: Final Synthesis is its own node) -->
+  <g font-size="12.5" text-anchor="middle">
+    <rect x="65"  y="260" width="155" height="62" rx="7" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="142" y="284" font-weight="bold" fill="#1e3a8a">5. Verification</text>
+    <text x="142" y="302" font-size="11.5" fill="#1e3a8a">claim vs passage</text>
+    <text x="142" y="316" font-size="11.5" fill="#1e3a8a">entailment</text>
+
+    <rect x="232" y="260" width="155" height="62" rx="7" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>
+    <text x="309" y="284" font-weight="bold" fill="#14532d">6. Gap Analysis</text>
+    <text x="309" y="302" font-size="11.5" fill="#14532d">counts evidence</text>
+    <text x="309" y="316" font-size="11.5" fill="#14532d">gaps</text>
+
+    <rect x="399" y="260" width="155" height="62" rx="7" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>
+    <text x="476" y="284" font-weight="bold" fill="#14532d">7. Confidence</text>
+    <text x="476" y="302" font-size="11.5" fill="#14532d">1 - gaps/steps,</text>
+    <text x="476" y="316" font-size="11.5" fill="#14532d">replan rule</text>
+
+    <rect x="566" y="260" width="155" height="62" rx="7" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>
+    <text x="643" y="284" font-weight="bold" fill="#14532d">8. XAI</text>
+    <text x="643" y="302" font-size="11.5" fill="#14532d">provenance-based</text>
+    <text x="643" y="316" font-size="11.5" fill="#14532d">explanation</text>
+
+    <rect x="733" y="260" width="157" height="62" rx="7" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>
+    <text x="811" y="284" font-weight="bold" fill="#14532d">9. Final Synthesis *</text>
+    <text x="811" y="302" font-size="11.5" fill="#14532d">deterministic</text>
+    <text x="811" y="316" font-size="11.5" fill="#14532d">assembly</text>
+  </g>
+
+  <!-- blackboard -->
+  <rect x="65" y="345" width="825" height="58" rx="7" fill="#f3e8ff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="477" y="369" text-anchor="middle" font-size="14" font-weight="bold" fill="#4c1d95">Shared state blackboard: ResearchState (LangGraph state object)</text>
+  <text x="477" y="389" text-anchor="middle" font-size="12.5" fill="#4c1d95">query, plan, sources, summary, report, verification, gaps, confidence, replan_count, xai_explanation, final_report, log</text>
+
+  <!-- agents to blackboard arrows -->
+  <g stroke="#7c3aed" stroke-width="1.2">
+    <line x1="142" y1="322" x2="142" y2="345" marker-end="url(#arrow)"/>
+    <line x1="309" y1="322" x2="309" y2="345" marker-end="url(#arrow)"/>
+    <line x1="476" y1="322" x2="476" y2="345" marker-end="url(#arrow)"/>
+    <line x1="643" y1="322" x2="643" y2="345" marker-end="url(#arrow)"/>
+    <line x1="811" y1="322" x2="811" y2="345" marker-end="url(#arrow)"/>
+  </g>
+  <text x="477" y="428" text-anchor="middle" font-size="12" fill="#6d28d9" font-style="italic">every agent reads from and writes to the one shared state; no agent talks to another directly</text>
+
+  <!-- knowledge layer -->
+  <rect x="40" y="490" width="430" height="200" rx="10" fill="#fffbeb" stroke="#b45309" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="60" y="518" font-size="15" font-weight="bold" fill="#78350f">Knowledge layer: academic APIs + vector store</text>
+  <g font-size="13" text-anchor="middle">
+    <rect x="60"  y="535" width="185" height="40" rx="6" fill="#fef3c7" stroke="#b45309"/>
+    <text x="152" y="560" fill="#78350f">Semantic Scholar API</text>
+    <rect x="260" y="535" width="90" height="40" rx="6" fill="#fef3c7" stroke="#b45309"/>
+    <text x="305" y="560" fill="#78350f">arXiv API</text>
+    <rect x="365" y="535" width="90" height="40" rx="6" fill="#fef3c7" stroke="#b45309"/>
+    <text x="410" y="560" fill="#78350f">OpenAlex API</text>
+    <rect x="60" y="590" width="395" height="62" rx="6" fill="#fef3c7" stroke="#b45309"/>
+    <text x="257" y="612" font-weight="bold" fill="#78350f">ChromaDB vector store (all-MiniLM-L6-v2 embeddings)</text>
+    <text x="257" y="632" fill="#78350f">semantic retrieval; reset per run (per-run working memory)</text>
+  </g>
+  <text x="60" y="676" font-size="12" fill="#92400e" font-style="italic">a failed API degrades the run, it never kills it</text>
+
+  <!-- model layer -->
+  <rect x="490" y="490" width="430" height="200" rx="10" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="510" y="518" font-size="15" font-weight="bold" fill="#1e3a8a">Local model layer: Ollama engine</text>
+  <g font-size="13" text-anchor="middle">
+    <rect x="510" y="535" width="185" height="62" rx="6" fill="#dbeafe" stroke="#1d4ed8"/>
+    <text x="602" y="560" font-weight="bold" fill="#1e3a8a">qwen3:14b</text>
+    <text x="602" y="580" fill="#1e3a8a">reasoning: Planner, Verification</text>
+    <rect x="715" y="535" width="185" height="62" rx="6" fill="#dbeafe" stroke="#1d4ed8"/>
+    <text x="807" y="560" font-weight="bold" fill="#1e3a8a">llama3.1:8b</text>
+    <text x="807" y="580" fill="#1e3a8a">generation: Summarise, Synthesis</text>
+  </g>
+  <text x="510" y="622" font-size="12.5" fill="#1e3a8a">Ollama itself loads and swaps models (keep_alive);</text>
+  <text x="510" y="640" font-size="12.5" fill="#1e3a8a">the orchestrator only sends requests. Every call is</text>
+  <text x="510" y="658" font-size="12.5" fill="#1e3a8a">bounded: 4096-token cap and 300s stream read timeout.</text>
+
+  <!-- cross-layer arrows -->
+  <line x1="255" y1="450" x2="255" y2="490" stroke="#b45309" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="268" y="466" font-size="11.5" fill="#92400e">Research queries the APIs;</text>
+  <text x="268" y="481" font-size="11.5" fill="#92400e">Summarise retrieves from ChromaDB</text>
+  <line x1="705" y1="490" x2="705" y2="450" stroke="#1d4ed8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="718" y="474" font-size="11.5" fill="#1e3a8a">LLM agents call models via Ollama</text>
+
+  <!-- legend -->
+  <g font-size="12" fill="#0f172a">
+    <rect x="40" y="720" width="880" height="40" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+    <rect x="58" y="732" width="16" height="16" fill="#dbeafe" stroke="#1d4ed8"/>
+    <text x="82" y="745">LLM-backed agent (local Ollama call)</text>
+    <rect x="340" y="732" width="16" height="16" fill="#dcfce7" stroke="#15803d"/>
+    <text x="364" y="745">deterministic Python, no model call</text>
+    <rect x="620" y="732" width="16" height="16" fill="#fef3c7" stroke="#b45309"/>
+    <text x="644" y="745">external API / retrieval</text>
+  </g>
+</svg>

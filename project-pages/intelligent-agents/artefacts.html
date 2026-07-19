@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="../../css/typography.css">
     <link rel="stylesheet" href="../../css/utilities.css">
     <script defer src="../../js/script.js"></script>
+    <style>
+        .artefacts-grid.two-col { grid-template-columns: repeat(2, 1fr); }
+        @media (max-width: 700px) {
+            .artefacts-grid.two-col { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
     <div class="navbar">
@@ -18,7 +24,7 @@
                 <a class="button" href="#"><span class="button-text">Contact Me</span></a>
                 <div class="contact-dropdown-menu">
                     <a href="https://www.linkedin.com/in/sarka-/" target="_blank">LinkedIn</a>
-                    <a href="mailto:your-email@example.com">Email</a>
+                    <a href="mailto:sp.studentmail@gmail.com">Email</a>
                 </div>
             </div>
         </a>
@@ -40,8 +46,66 @@
         <div id="project-details">
             <div class="subheader-text">Overview</div>
             <div class="project-details-content">
-                <div class="body-text">This page will contain the artefacts produced for the Intelligent Agents module — code repositories, assignment deliverables, and supporting documents.</div>
-                <div class="body-text">Replace this placeholder text with your actual content, links, and embedded files as you complete the module.</div>
+                <div class="body-text">The artefacts on this page trace the full arc of the module: from analysing where agent-based systems are used and how agents communicate, through the group design of a multi-agent research assistant, to my individual implementation and testing of that design. Together they evidence the module learning outcomes: differentiating agent architectures, applying agent techniques to a real problem involving technical risk and uncertainty, deploying appropriate tools with attention to legal, social, ethical, and professional issues, and working effectively in a virtual development team.</div>
+                <div class="body-text">The centrepiece is a multi-agent research assistant for academic literature, which I named MASRA (A Multi-Agent System Research Assistant) during the individual build. The group design proposal (week 6) defined eight agent roles with BDI-inspired planning and a replanning loop. My individual implementation (week 11) realised the design on LangGraph with local models via Ollama, correcting the proposal's documented errors rather than repeating them, and adding a deterministic trust subsystem: claim-by-claim verification, gap analysis, confidence scoring, and provenance-based explainability. The execution evidence includes a verbatim system run in which the bounded replan loop reached its cap and the system flagged its own report as low confidence instead of overclaiming.</div>
+            </div>
+        </div>
+
+        <!-- FILES -->
+        <div class="project-details">
+            <div class="subheader-text">Files</div>
+            <div class="artefacts-grid two-col">
+
+                <a href="../../files/intelligent-agents/artefacts/design-proposal.pdf" class="artefact-card" target="_blank">
+                    <div class="artefact-icon">PDF</div>
+                    <div class="artefact-text">
+                        <div class="artefact-title">Group Design Proposal</div>
+                        <div class="artefact-description">Week 6 team design of the multi-agent research assistant: eight agent roles, Tropos requirements mapping, BDI-inspired planning, local model deployment plan.</div>
+                    </div>
+                </a>
+
+                <a href="../../files/intelligent-agents/artefacts/masra-presentation.pdf" class="artefact-card" target="_blank">
+                    <div class="artefact-icon">PDF</div>
+                    <div class="artefact-text">
+                        <div class="artefact-title">MASRA Individual Project Presentation</div>
+                        <div class="artefact-description">Week 11 presentation of the implemented system: architecture, trust subsystem, testing, and critical evaluation against the proposal.</div>
+                    </div>
+                </a>
+
+                <a href="../../files/intelligent-agents/artefacts/masra-evidence.html" class="artefact-card" target="_blank">
+                    <div class="artefact-icon">RUN</div>
+                    <div class="artefact-text">
+                        <div class="artefact-title">Execution and Testing Evidence</div>
+                        <div class="artefact-description">147 passing tests and a verbatim system run showing the capped replan loop flagging its own output as low confidence.</div>
+                    </div>
+                </a>
+
+                <a href="../../files/intelligent-agents/artefacts/discussion-forum-contributions.pdf" class="artefact-card" target="_blank">
+                    <div class="artefact-icon">PDF</div>
+                    <div class="artefact-text">
+                        <div class="artefact-title">Discussion Forum Contributions</div>
+                        <div class="artefact-description">My contributions to the three collaborative discussions (agent-based systems, agent communication languages, deep learning), with links to the forum threads and a summary of what I argued and learned.</div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- DIAGRAMS -->
+        <div class="project-details">
+            <div class="subheader-text">System Diagrams</div>
+            <div class="project-details-content">
+                <div class="body-text">Figure 1: MASRA high-level architecture. The proposal's eight agent roles realised as nine nodes on one LangGraph StateGraph, communicating only through a shared state blackboard.</div>
+                <img src="../../files/intelligent-agents/artefacts/figure1-architecture.svg" alt="MASRA architecture diagram" style="max-width: 100%; margin-bottom: 1.5em;">
+                <div class="body-text">Figure 2: the agent workflow, including the plan-validation gate, the hybrid replan rule, and the capped replan loop with graceful fallback.</div>
+                <img src="../../files/intelligent-agents/artefacts/figure2-workflow.svg" alt="MASRA workflow diagram" style="max-width: 100%;">
+            </div>
+        </div>
+
+        <div class="project-details">
+            <div class="subheader-text">Code Repository</div>
+            <div class="project-details-content">
+                <div class="body-text">The full MASRA codebase (LangGraph agents, deterministic trust subsystem, test suite, and documentation including a DEVIATIONS.md recording every difference from the group proposal with its reason) is on GitHub: <a href="https://github.com/SarkaAI/multi-agent-research-assistant" target="_blank">SarkaAI/multi-agent-research-assistant</a>. The repository is private; reviewer access is shared with the module lead.</div>
             </div>
         </div>
     </div>

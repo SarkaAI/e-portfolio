@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MASRA — Execution and Testing Evidence</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+body { font-family: Georgia, serif; max-width: 60em; margin: 2em auto; padding: 0 1em; color: #222; }
+h1, h2 { font-family: Helvetica, Arial, sans-serif; }
+pre { background: #f6f6f4; border: 1px solid #ddd; padding: 1em; overflow-x: auto; white-space: pre-wrap; font-size: 0.85em; line-height: 1.4; }
+.note { color: #555; font-style: italic; }
+a { color: #4a4a8a; }
+</style>
+</head>
+<body>
+<h1>MASRA: Execution and Testing Evidence</h1>
+<p class="note">Supporting evidence for the Unit 11 individual project (MASRA, A Multi-Agent System Research Assistant). The report below is a verbatim output of a real system run. Note the LOW-CONFIDENCE flag: the capped replan loop reached its limit without clearing all gaps, so the system completed gracefully and flagged the result as provisional instead of presenting it as verified. This behaviour is a deliberate safety feature, not a failure.</p>
+<h2>1. Unit and integration tests</h2>
+<pre>................ss...................................................... [ 48%]
+........................................................................ [ 96%]
+.....                                                                    [100%]
+147 passed, 2 skipped in 3.49s
+</pre>
+<h2>2. Functional test session (excerpt)</h2>
+<pre>============================= test session starts ==============================
+platform darwin -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0
+rootdir: /Users/sp/MastersAI/5_Agents/Unit11/Individual porject/multi-agent-research-assistant
+configfile: pyproject.toml
+plugins: anyio-4.14.1, langsmith-0.9.7
+collected 2 items
+
+tests/test_core_graph.py # Retrieval-Augmented Generation and Its Applications  
+
+## Introduction  
+Retrieval-augmented generation (RAG) combines external knowledge with generation to address limitations of large language models (LLMs) like outdated information and hallucinations. It is used in applications such as multi-hop question answering, fact verification, and healthcare to improve accuracy and robustness. The technical mechanisms of knowledge integration remain unspecified, though its benefits in specific domains are highlighted.  
+
+---
+
+## What is retrieval-augmented generation and how does it integrate external knowledge?  
+[S1] describes RAG as a method that integrates external knowledge by combining retrieval of relevant information with generation of responses. The Iter-RetGen framework iteratively synergizes retrieval and generation: a model&#x27;s response guides retrieval, which then improves subsequent generation. LightRAG enhances retrieval through graph structures, enabling contextual awareness and efficient handling of complex relationships. While sources emphasize RAG&#x27;s benefits in healthcare and efficiency, they do not detail the technical mechanisms of knowledge integration beyond these frameworks.  
+
+---
+
+## What are the primary use cases or applications of retrieval-augmented generation?  
+[S1] highlights RAG&#x27;s use in multi-hop question answering, where Iter-RetGen addresses knowledge gaps. [S2] discusses its application in healthcare to enhance reliability and personalization in generative AI. These applications underscore RAG&#x27;s role in improving accuracy and robustness by integrating external knowledge. However, the sources do not explicitly detail other use cases beyond these three areas.  
+
+---
+
+## What are the ethical and practical considerations of using retrieval-augmented generation?  
+[S2] highlights ethical and practical challenges, including reliability, equity, and privacy in medical RAG. [S5] emphasizes ethical concerns in legal RAG, requiring careful handling of external knowledge. Practically, RAG demands meticulous attention to retrieval techniques and pipeline stages to avoid hallucinations. [S1] stresses the importance of balancing retrieval and generation to minimize overheads and ensure flexibility. These considerations underscore the need for rigorous evaluation and adaptation to mitigate risks while leveraging RAG&#x27;s potential.  
+
+---
+
+## What are the limitations and challenges of retrieval-augmented generation?  
+[S1] notes difficulties in capturing relevance for complex queries, with retrievers struggling to contextualize information. [S2] highlights challenges in medical scenarios, such as ensuring equity and reliability. [S4] underscores the lack of rigorous evaluation across LLMs, revealing variability in performance. These findings suggest RAG&#x27;s effectiveness depends on context and model capabilities, requiring further research to address gaps.  
+
+---
+
+## How does retrieval-augmented generation differ from traditional generation methods?  
+[RAG] differs from traditional methods by integrating external knowledge retrieval with generation, addressing limitations like outdated knowledge. [S1] describes Iter-RetGen as a cycle where retrieval improves generation, preserving flexibility without structural constraints. Traditional methods lack such iterative synergy, leading to potential knowledge gaps. [S4] highlights benchmarks showing challenges like negative rejection and information integration, underscoring the need for tailored approaches. The core distinction lies in RAG&#x27;s dynamic, retrieval-guided generation, which traditional methods avoid.  
+
+---
+
+## Conclusio
+[... truncated ...]</pre>
+<h2>3. Example generated report (verbatim system output)</h2>
+<pre># Run: What is retrieval-augmented generation and why is it used?
+
+## Sub-questions (plan, valid=True)
+
+1. How does retrieval-augmented generation integrate external knowledge sources during the generation process, and what are the key mechanisms that ensure this integration is effective?
+   why: This addresses the core functionality of RAG and clarifies how external knowledge is utilized, which was previously underrepresented in citations.
+2. What specific techniques are employed in RAG systems to validate the accuracy and relevance of retrieved information before incorporating it into generated outputs?
+   why: This fills the gap in ensuring reliability and relevance, which was previously cited but lost traceability in synthesis.
+3. In which real-world applications or domains has RAG demonstrated significant improvements over traditional generative models, and what metrics were used to evaluate these improvements?
+   why: This provides concrete examples of RAG&#x27;s utility and ensures corroboration through domain-specific metrics.
+4. What are the common limitations of RAG systems in terms of scalability and computational efficiency, and how do these limitations impact their deployment in practical scenarios?
+   why: This addresses implementation challenges previously mentioned but lacking independent corroboration.
+5. How do RAG systems handle the dynamic updating of knowledge bases, and what strategies are used to maintain consistency between retrieved information and the evolving data sources?
+   why: This targets the gap in addressing dynamic environments with a focus on adaptation strategies.
+6. What are the ethical considerations associated with the use of RAG, particularly regarding bias in retrieved information and the potential for misinformation in generated outputs?
+   why: This introduces a new angle on ethical implications, which was not previously explored in the synthesis.
+
+**LOW-CONFIDENCE REPORT** - the replan cap (3) was reached without clearing the gaps below; treat the claims here as provisional, not verified.
+
+Remaining gaps:
+- &#x27;In which real-world applications or domains has RAG demonstrated significant improvements over traditional generative models, and what metrics were used to evaluate these improvements?&#x27; - Synthesis dropped citation(s) S5, S6 present in the grounded summary
+- CRITICAL: &#x27;What are the common limitations of RAG systems in terms of scalability and computational efficiency, and how do these limitations impact their deployment in practical scenarios?&#x27; is not supported by its cited sources (VERDICT: UNSUPPORTED - The answer claims RAG systems have limitations in computational efficiency and hallucination, but the sources state RAG reduces hallucination and focus on challenges like alignment and retrieval efficiency, not computational costs or hallucination as limitations.)
+- &#x27;What are the common limitations of RAG systems in terms of scalability and computational efficiency, and how do these limitations impact their deployment in practical scenarios?&#x27; - Synthesis dropped citation(s) S4 present in the grounded summary
+- &#x27;How do RAG systems handle the dynamic updating of knowledge bases, and what strategies are used to maintain consistency between retrieved information and the evolving data sources?&#x27; - Synthesis dropped citation(s) S1 present in the grounded summary
+- &#x27;What are the ethical considerations associated with the use of RAG, particularly regarding bias in retrieved information and the potential for misinformation in generated outputs?&#x27; - Synthesis dropped citation(s) S3 present in the grounded summary
+
+---
+
+# Retrieval-Augmented Generation Research Report
+
+## Introduction
+Retrieval-Augmented Generation (RAG) is a technique that integrates external knowledge sources during the generation process, enabling more accurate and contextually relevant outputs. This report aims to answer the research goal of understanding what RAG is and why it&#x27;s used.
+
+## How does retrieval-augmented generation integrate external knowledge sources during the generation process, and what are the key mechanisms that ensure this integration is effective?
+
+Retrieval-Augmented Generation (RAG) integrates external knowledge sources during the generation process by leveraging large-scale retrieval systems with generative models [S1]. This integration is done through a dual-level retrieval system that enhances comprehensive information retrieval from both low-level and high-level knowledge discovery [S2]. The key mechanisms that ensure this integration is effective include:
+
+* Augmenting generative models with dynamic external knowledge [S1]
+* Aligning retrieved information with generative objectives [S1]
+* Incorporating graph structures into text indexing and retrieval processes for efficient retrieval of related entities and their relationships [S2]
+
+These mechanisms enable RAG systems to generate more accurate and contextually relevant outputs, as demonstrated by LightRAG&#x27;s experimental validation showing considerable improvements in retrieval accuracy and efficiency compared to existing approaches [S2].
+
+## What specific techniques are employed in RAG systems to validate the accuracy and relevance of retrieved information before incorporating it into generated outputs?
+
+The specific techniques employed in RAG systems to validate the accuracy and relevance of retrieved information before incorporating it into generated outputs include:
+
+* Retrieval mechanisms that align retrieved information with generative objectives (S1)
+* Augmentation techniques that merge intrinsic knowledge with external databases, enhancing accuracy and credibility (S3)
+* Dual process of retrieving and generating that ensures contextually accurate responses aligned with the latest clinical evidence in healthcare applications (S4)
+
+These techniques aim to address challenges such as hallucination, outdated knowledge, and non-transparent reasoning processes in large language models.
+
+## In which real-world applications or domains has RAG demonstrated significant improvements over traditional generative models, and what metrics were used to evaluate these improvements?
+
+RAG has demonstrated significant improvements over traditional generative models in various domains, including:
+
+* Question answering: RAG has shown improved performance on question-answering tasks by leveraging external knowledge sources (S1).
+* Summarization: RAG can generate more accurate and contextually relevant summaries by incorporating dynamic external knowledge (S1).
+* Information retrieval: RAG has been applied in information retrieval tasks, where it can improve model performance by augmenting generative models with external knowledge (S1).
+
+## What are the common limitations of RAG systems in terms of scalability and computational efficiency, and how do these limitations impact their deployment in practical scenarios?
+
+The common limitations of RAG systems in terms of scalability and computational efficiency are:
+
+* High computational costs due to the need to retrieve and process large amounts of external knowledge (S3)
+* Limited ability to handle complex queries or multi-modal data, leading to reduced retrieval efficiency (S1)
+* Potential for &quot;hallucination&quot; or inaccurate information generation if not properly aligned with generative objectives (S1)
+
+## How do RAG systems handle the dynamic updating of knowledge bases, and what strategies are used to maintain consistency between retrieved information and the evolving data sources?
+
+RAG systems use an incremental update algorithm to ensure timely integration of new data (S2). This allows the system to remain effective and responsive in rapidly changing data environments. Additionally, graph structures are integrated with vector representations to facilitate efficient retrieval of related entities and their relationships (S2).
+
+## What are the ethical considerations associated with the use of RAG, particularly regarding bias in retrieved information and the potential for misinformation in generated outputs?
+
+The ethical considerations associated with the use of Retrieval-Augmented Generation (RAG) include bias in retrieved information and the potential for misinformation in generated outputs.
+
+Bias in retrieved information is a concern because RAG models rely on external knowledge sources, which may be biased or outdated [S4]. This can lead to inaccurate or incomplete information being incorporated into the generated output. Additionally, the use of retrieval mechanisms can perpetuate existing biases if the training data used to develop these mechanisms contains biases [S1].
+
+## Conclusion
+Retrieval-Augmented Generation (RAG) is a powerful technique that integrates external knowledge sources during the generation process, enabling more accurate and contextually relevant outputs. However, RAG systems have limitations in terms of scalability and computational efficiency, which can impact their deployment in practical scenarios. Additionally, there are ethical considerations associated with the use of RAG, particularly regarding bias in retrieved information and the potential for misinformation in generated outputs. Further research is needed to fully address these challenges and ensure that RAG systems are effective and responsible tools for various applications.
+
+---
+
+## Trust subsystem
+
+Confidence: 0.17 | replans used: 3/3 | loop terminated by: cap_reached
+
+Remaining gaps:
+- &#x27;In which real-world applications or domains has RAG demonstrated significant improvements over traditional generative models, and what metrics were used to evaluate these improvements?&#x27; - Synthesis dropped citation(s) S5, S6 present in the grounded summary
+- CRITICAL: &#x27;What are the common limitations of RAG systems in terms of scalability and computational efficiency, and how do these limitations impact their deployment in practical scenarios?&#x27; is not supported by its cited sources (VERDICT: UNSUPPORTED - The answer claims RAG systems have limitations in computational efficiency and hallucination, but the sources state RAG reduces hallucination and focus on challenges like alignment and retrieval efficiency, not computational costs or hallucination as limitations.)
+- &#x27;What are the common limitations of RAG systems in terms of scalability and computational efficiency, and how do these limitations impact their deployment in practical scenarios?&#x27; - Synthesis dropped citation(s) S4 present in the grounded summary
+- &#x27;How do RAG systems handle the dynamic updating of knowledge bases, and what strategies are used to maintain consistency between retrieved information and the evolving data sources?&#x27; - Synthesis dropped citation(s) S1 present in the grounded summary
+- &#x27;What are the ethical considerations associated with the use of RAG, particularly regarding bias in retrieved information and the potential for misinformation in generated outputs?&#x27; - Synthesis dropped citation(s) S3 present in the grounded summary
+
+---
+
+## Explainability (XAI)
+
+This explanation traces provenance already recorded during this run - which source backed each answer, what Verification and Gap Analysis found, how Confidence was counted - rather than asking a model to describe its own reasoning (Doshi-Velez and Kim, 2017, on the post-hoc rationalisation risk of self-explanation).
+
+### How does retrieval-augmented generation integrate external knowledge sources during the generation process, and what are the key mechanisms that ensure this integration is effective?
+
+- Verification: VERDICT: SUPPORTED - Every claim in the answer is explicitly backed by the source passages, including the integration of retrieval systems with generative models, the dual-level retrieval system, alignment of retrieved information, graph structures, and experimental validation from LightRAG.
+- Sources used: [S1] A Survey on Knowledge-Oriented Retrieval-Augmented Generation, [S2] LightRAG: Simple and Fast Retrieval-Augmented Generation, [S3] Retrieval-Augmented Generation for Large Language Models: A Survey
+- Gaps flagged: none
+
+### What specific techniques are employed in RAG systems to validate the accuracy and relevance of retrieved information before incorporating it into generated outputs?
+
+- Verification: VERDICT: SUPPORTED - All claims in the answer are explicitly mentioned in the source passages (e.g., alignment of retrieval with generative objectives, merging intrinsic/external knowledge, dual process for accuracy in healthcare, and addressing hallucination/outdated knowledge).
+- Sources used: [S1] A Survey on Knowledge-Oriented Retrieval-Augmented Generation, [S3] Retrieval-Augmented Generation for Large Language Models: A Survey, [S4] A survey on retrieval-augmentation generation (RAG) models for healthcare applications
+- Gaps flagged: none
+
+### In which real-world applications or domains has RAG demonstrated significant improvements over traditional generative models, and what metrics were used to evaluate these improvements?
+
+- Verification: VERDICT: PARTIAL - The answer correctly cites RAG&#x27;s applications in question answering, summarization, and information retrieval (S1) and the evaluation study in S6, but incorrectly attributes construction industry applications to RAG instead of GPT models (S5), which is not supported by the source passages.
+- Sources used: [S1] A Survey on Knowledge-Oriented Retrieval-Augmented Generation, [S5] GPT models in construction industry: Opportunities, limitations, and a use case validation, [S6] An Evaluation Study of Generative AI Systems: Framework-Aware Performance Under Real-World Constraints
+- Gaps flagged: &#x27;In which real-world applications or domains has RAG demonstrated significant improvements over traditional generative models, and what metrics were used to evaluate these improvements?&#x27; - Synthesis dropped citation(s) S5, S6 present in the grounded summary
+
+### What are the common limitations of RAG systems in terms of scalability and computational efficiency, and how do these limitations impact their deployment in practical scenarios?
+
+- Verification: VERDICT: UNSUPPORTED - The answer claims RAG systems have limitations in computational efficiency and hallucination, but the sources state RAG reduces hallucination and focus on challenges like alignment and retrieval efficiency, not computational costs or hallucination as limitations.
+- Sources used: [S1] A Survey on Knowledge-Oriented Retrieval-Augmented Generation, [S3] Retrieval-Augmented Generation for Large Language Models: A Survey, [S4] A survey on retrieval-augmentation generation (RAG) models for healthcare applications
+- Gaps flagged: CRITICAL: &#x27;What are the common limitations of RAG systems in terms of scalability and computational efficiency, and how do these limitations impact their deployment in practical scenarios?&#x27; is not supported by its cited sources (VERDICT: UNSUPPORTED - The answer claims RAG systems have limitations in computational efficiency and hallucination, but the sources state RAG reduces hallucination and focus on challenges like alignment and retrieval efficiency, not computational costs or hallucination as limitations.); &#x27;What are the common limitations of RAG systems in terms of scalability and computational efficiency, and how do these limitations impact their deployment in practical scenarios?&#x27; - Synthesis dropped citation(s) S4 present in the grounded summary
+
+### How do RAG systems handle the dynamic updating of knowledge bases, and what strategies are used to maintain consistency between retrieved information and the evolving data sources?
+
+- Verification: VERDICT: SUPPORTED - All claims in the answer are explicitly mentioned in the source passages (e.g., incremental update algorithm, graph structures with vector representations, dual-level retrieval system).
+- Sources used: [S2] LightRAG: Simple and Fast Retrieval-Augmented Generation, [S3] Retrieval-Augmented Generation for Large Language Models: A Survey, [S4] A survey on retrieval-augmentation generation (RAG) models for healthcare applications
+- Gaps flagged: &#x27;How do RAG systems handle the dynamic updating of knowledge bases, and what strategies are used to maintain consistency between retrieved information and the evolving data sources?&#x27; - Synthesis dropped citation(s) S1 present in the grounded summary
+
+### What are the ethical considerations associated with the use of RAG, particularly regarding bias in retrieved information and the potential for misinformation in generated outputs?
+
+- Verification: VERDICT: PARTIAL - The answer mentions bias in retrieved information and hallucination, which are partially supported (e.g., sources discuss hallucination and reliance on external knowledge), but specific claims about mitigation strategies (e.g., diverse training data, evaluation frameworks) are not explicitly addressed in the passages.
+- Sources used: [S1] A Survey on Knowledge-Oriented Retrieval-Augmented Generation, [S4] A survey on retrieval-augmentation generation (RAG) models for healthcare applications, [S3] Retrieval-Augmented Generation for Large Language Models: A Survey
+- Gaps flagged: &#x27;What are the ethical considerations associated with the use of RAG, particularly regarding bias in retrieved information and the potential for misinformation in generated outputs?&#x27; - Synthesis dropped citation(s) S3 present in the grounded summary
+
+### Confidence
+
+Confidence 0.17 = 1 - (5 gap(s) / 6 step(s)), floored at 0. This counts how much of THIS run&#x27;s own plan came back clean, not the probability the report is true (see masra/confidence.py).
+
+---
+
+## Appendix: retrieved sources
+
+Ordered by relevance (semantic distance to the nearest sub-question, lower is closer); score is credibility.
+
+- [dist 0.628 | score 1] (openalex) The Power of Noise: Redefining Retrieval for RAG Systems - 174 citations - https://doi.org/10.1145/3626772.3657834
+- [dist 0.831 | score 2] (openalex) Retrieval-Augmented Generation for Large Language Models: A Survey - 669 citations - https://doi.org/10.48550/arxiv.2312.10997
+- [dist 0.85 | score 3] (semantic_scholar) A Survey on Knowledge-Oriented Retrieval-Augmented Generation - 65 citations - https://www.semanticscholar.org/paper/8ae4581027c682b9ebad687c76e3a0559016c760
+- [dist 0.85 | score 2] (semantic_scholar) Unveiling Knowledge Utilization Mechanisms in LLM-based Retrieval-Augmented Generation - 6 citations - https://www.semanticscholar.org/paper/7d92ea81ed8b9bac3dbc0ec8be736a843f923d84
+- [dist 0.942 | score 0] (arxiv) EVOR: Evolving Retrieval for Code Generation - 0 citations - http://arxiv.org/abs/2402.12317v2
+- [dist 0.946 | score 3] (semantic_scholar) LightRAG: Simple and Fast Retrieval-Augmented Generation - 363 citations - https://www.semanticscholar.org/paper/1ea143c34b9bc359780f79ba4d68dee68bcc1129
+- [dist 0.948 | score 2] (semantic_scholar) Research on the construction and application of retrieval enhanced generation (RAG) model based on knowledge graph - 10 citations - https://www.semanticscholar.org/paper/cc7d79a5e28451602301327b81648577ede9aa94
+- [dist 0.95 | score 2] (semantic_scholar) Agentic AI-Driven Technical Troubleshooting for Enterprise Systems: A Novel Weighted Retrieval-Augmented Generation Paradigm - 11 citations - https://www.semanticscholar.org/paper/c1f8a0045d84c8d00cf83c274e36826e091c9a9f
+- [dist 0.952 | score 0] (arxiv) MultiHop-RAG: Benchmarking Retrieval-Augmented Generation for Multi-Hop Queries - 0 citations - http://arxiv.org/abs/2401.15391v1
+- [dist 0.956 | score 0] (arxiv) Vendi-RAG: Adaptively Trading-Off Diversity And Quality Significantly Improves Retrieval Augmented Generation With LLMs - 0 citations - http://arxiv.org/abs/2502.11228v2
+- [dist 0.993 | score 2] (openalex) Retrieval-Augmented Generation (RAG) in Healthcare: A Comprehensive Review - 43 citations - https://doi.org/10.3390/ai6090226
+- [dist 1.012 | score 0] (arxiv) Exploring Information Retrieval Landscapes: An Investigation of a Novel Evaluation Techniques and Comparative Document Splitting Methods - 0 citations - http://arxiv.org/abs/2409.08479v2
+- [dist 1.017 | score 0] (arxiv) Improving the Domain Adaptation of Retrieval Augmented Generation (RAG) Models for Open Domain Question Answering - 0 citations - http://arxiv.org/abs/2210.02627v1
+- [dist 1.078 | score 2] (openalex) A survey on retrieval-augmentation generation (RAG) models for healthcare applications - 24 citations - https://doi.org/10.1007/s00521-025-11666-9
+- [dist 1.093 | score 3] (openalex) Integrating Retrieval-Augmented Generation with Large Language Models in Nephrology: Advancing Practical Applications - 152 citations - https://doi.org/10.3390/medicina60030445
+- [dist 1.102 | score 0] (arxiv) EverydayGPT: Confidence-Gated Routing for Efficient and Safe Hybrid GPT-RAG Conversational QA - 0 citations - http://arxiv.org/abs/2606.11212v1
+- [dist 1.104 | score 1] (openalex) Large Language Models for Information Retrieval: A Survey - 95 citations - https://doi.org/10.48550/arxiv.2308.07107
+- [dist 1.105 | score 0] (arxiv) RAG based Question-Answering for Contextual Response Prediction System - 0 citations - http://arxiv.org/abs/2409.03708v2
+- [dist 1.109 | score 0] (arxiv) Evaluating Generative Models for Tabular Data: Novel Metrics and Benchmarking - 0 citations - http://arxiv.org/abs/2504.20900v1
+- [dist 1.114 | score 2] (semantic_scholar) Using Generative Artificial Intelligence in Health Economics and Outcomes Research: A Primer on Techniques and Breakthroughs - 13 citations - https://www.semanticscholar.org/paper/4273db401f0d0de69f9e2f85f0a5b73abf05bbbd
+- [dist 1.116 | score 0] (arxiv) Automated Literature Review Using NLP Techniques and LLM-Based Retrieval-Augmented Generation - 0 citations - http://arxiv.org/abs/2411.18583v1
+- [dist 1.163 | score 3] (openalex) Retrieval-Augmented Generation (RAG) Chatbots for Education: A Survey of Applications - 82 citations - https://doi.org/10.3390/app15084234
+- [dist 1.17 | score 0] (arxiv) AR-RAG: Autoregressive Retrieval Augmentation for Image Generation - 0 citations - http://arxiv.org/abs/2506.06962v3
+- [dist 1.172 | score 0] (arxiv) RAG System for Supporting Japanese Litigation Procedures: Faithful Response Generation Complying with Legal Norms - 0 citations - http://arxiv.org/abs/2511.22858v1
+- [dist 1.176 | score 2] (semantic_scholar) An Evaluation Study of Generative AI Systems: Framework-Aware Performance Under Real-World Constraints - 0 citations - https://www.semanticscholar.org/paper/a8242e9af7f11f149d990f2c6b93a4735bb063d4
+- [dist 1.205 | score 3] (openalex) HybridRAG: Integrating Knowledge Graphs and Vector Retrieval Augmented Generation for Efficient Information Extraction - 104 citations - https://doi.org/10.1145/3677052.3698671
+- [dist 1.237 | score 3] (openalex) GPT models in construction industry: Opportunities, limitations, and a use case validation - 171 citations - https://doi.org/10.1016/j.dibe.2023.100300
+- [dist 1.306 | score 2] (openalex) A Survey of Large Language Models - 1414 citations - https://doi.org/10.1007/s11704-026-60308-3
+- [dist 1.351 | score 1] (openalex) Enriching Location Representation with Detailed Semantic Information - 394 citations - https://doi.org/10.4230/lipics.giscience.2025.3
+- [dist 1.372 | score 0] (arxiv) Ethically Collecting Multi-Modal Spontaneous Conversations with People that have Cognitive Impairments - 0 citations - http://arxiv.org/abs/2009.14361v1
+- [dist 1.567 | score 4] (openalex) The Hearsay-II Speech-Understanding System: Integrating Knowledge to Resolve Uncertainty - 1351 citations - https://doi.org/10.1145/356810.356816
+- [dist 1.672 | score 0] (arxiv) Data Encoding for Byzantine-Resilient Distributed Optimization - 0 citations - http://arxiv.org/abs/1907.02664v2
+- [dist 1.751 | score 2] (semantic_scholar) Toward End-to-End Underwater Multi-View Stereo for Real-World Dense Scene Reconstruction - 7 citations - https://www.semanticscholar.org/paper/e6ca1f54ee7d2434b00317b145d4d89d3c2f4ba6
+- [dist 9.9 | score 2] (semantic_scholar) Database and expert systems applications : 20th International Conference, DEXA 2009, Linz, Austria, August 31-September 4, 2009 : proceedings - 0 citations - https://www.semanticscholar.org/paper/fbb270db201ed0ef4e6c2198a5c35f4903433568
+- [dist 9.9 | score 0] (semantic_scholar) bject- Or iented Systems: An Annotated Bibliography - 0 citations - https://www.semanticscholar.org/paper/8e24947e06439c0be2a066954de74453324a6b16
+
+
+## Appendix: grounded summaries (provenance)
+
+## How does retrieval-augmented generation integrate external knowledge sources during the generation process, and what are the key mechanisms that ensure this integration is effective?
+
+Retrieval-Augmented Generation (RAG) integrates external knowledge sources during the generation process by leveraging large-scale retrieval systems with generative models [S1]. This integration is done through a dual-level retrieval system that enhances comprehensive information retrieval from both low-level and high-level knowledge discovery [S2]. The key mechanisms that ensure this integration is effective include:
+
+* Augmenting generative models with dynamic external knowledge [S1]
+* Aligning retrieved information with generative objectives [S1]
+* Incorporating graph structures into text indexing and retrieval processes for efficient retrieval of related entities and their relationships [S2]
+
+These mechanisms enable RAG systems to generate more accurate and contextually relevant outputs, as demonstrated by LightRAG&#x27;s experimental validation showing considerable improvements in retrieval accuracy and efficiency compared to existing approaches [S2].
+
+Sources used:
+- [S1] A Survey on Knowledge-Oriented Retrieval-Augmented Generation
+- [S2] LightRAG: Simple and Fast Retrieval-Augmented Generation
+- [S3] Retrieval-Augmented Generation for Large Language Models: A Survey
+
+## What specific techniques are employed in RAG systems to validate the accuracy and relevance of retrieved information before incorporating it into generated outputs?
+
+The specific techniques employed in RAG systems to validate the accuracy and relevance of retrieved information before incorporating it into generated outputs include:
+
+* Retrieval mechanisms that align retrieved information with generative objectives (S1)
+* Augmentation techniques that merge intrinsic knowledge with external databases, enhancing accuracy and credibility (S3)
+* Dual process of retrieving and generating that ensures contextually accurate responses aligned with the latest clinical evidence in healthcare applications (S4)
+
+These techniques aim to address challenges such as hallucination, outdated knowledge, and non-transparent reasoning processes in large language models.
+
+Sources used:
+- [S1] A Survey on Knowledge-Oriented Retrieval-Augmented Generation
+- [S3] Retrieval-Augmented Generation for Large Language Models: A Survey
+- [S4] A survey on retrieval-augmentation generation (RAG) models for healthcare applications
+
+## In which real-world applications or domains has RAG demonstrated significant improvements over traditional generative models, and what metrics were used to evaluate these improvements?
+
+RAG has demonstrated significant improvements over traditional generative models in various domains, including:
+
+* Question answering: RAG has shown improved performance on question-answering tasks by leveraging external knowledge sources (S1).
+* Summarization: RAG can generate more accurate and contextually relevant summaries by incorporating dynamic external knowledge (S1).
+* Information retrieval: RAG has been applied in information retrieval tasks, where it can improve model performance by augmenting generative models with external knowledge (S1).
+
+In the construction industry, GPT models have shown potential for applications such as materials selection and optimization (S5). However, there is limited research on the opportunities and challenges of using LLMs in this domain.
+
+The evaluation study in S6 demonstrates that framework selection significantly impacts system performance, with task-specific trade-offs emerging across workload types. For retrieval-heavy RAG workloads, LlamaIndex delivers better latency and resource utilization (S6).
+
+Sources used:
+- [S1] A Survey on Knowledge-Oriented Retrieval-Augmented Generation
+- [S5] GPT models in construction industry: Opportunities, limitations, and a use case validation
+- [S6] An Evaluation Study of Generative AI Systems: Framework-Aware Performance Under Real-World Constraints
+
+## What are the common limitations of RAG systems in terms of scalability and computational efficiency, and how do these limitations impact their deployment in practical scenarios?
+
+The common limitations of RAG systems in terms of scalability and computational efficiency are:
+
+* High computational costs due to the need to retrieve and process large amounts of external knowledge (S3)
+* Limited ability to handle complex queries or multi-modal data, leading to reduced retrieval efficiency (S1)
+* Potential for &quot;hallucination&quot; or inaccurate information generation if not properly aligned with generative objectives (S1)
+
+These limitations impact their deployment in practical scenarios by:
+
+* Increasing the computational resources required for implementation (S3)
+* Limiting the scope of applications where RAG systems can be effectively used (S4)
+* Requiring significant expertise and effort to adapt and fine-tune RAG models for specific use cases (S1)
+
+Note: The sources provided do not contain detailed information on how these limitations can be addressed or mitigated.
+
+Sources used:
+- [S1] A Survey on Knowledge-Oriented Retrieval-Augmented Generation
+- [S3] Retrieval-Augmented Generation for Large Language Models: A Survey
+- [S4] A survey on retrieval-augmentation generation (RAG) models for healthcare applications
+
+## How do RAG systems handle the dynamic updating of knowledge bases, and what strategies are used to maintain consistency between retrieved information and the evolving data sources?
+
+Here&#x27;s how RAG systems handle dynamic updating of knowledge bases and maintain consistency between retrieved information and evolving data sources:
+
+RAG systems use an incremental update algorithm to ensure timely integration of new data (S1: Not available, but S2 mentions this capability). This allows the system to remain effective and responsive in rapidly changing data environments. Additionally, graph structures are integrated with vector representations to facilitate efficient retrieval of related entities and their relationships (S2).
+
+To maintain consistency between retrieved information and evolving data sources, RAG systems can employ a dual-level retrieval system that enhances comprehensive information retrieval from both low-level and high-level knowledge discovery (S2). This approach enables the system to capture complex inter-dependencies and provide contextually relevant responses.
+
+Note: S1 is not available in the provided sources.
+
+Sources used:
+- [S2] LightRAG: Simple and Fast Retrieval-Augmented Generation
+- [S3] Retrieval-Augmented Generation for Large Language Models: A Survey
+- [S4] A survey on retrieval-augmentation generation (RAG) models for healthcare applications
+
+## What are the ethical considerations associated with the use of RAG, particularly regarding bias in retrieved information and the potential for misinformation in generated outputs?
+
+The ethical considerations associated with the use of Retrieval-Augmented Generation (RAG) include bias in retrieved information and the potential for misinformation in generated outputs.
+
+Bias in retrieved information is a concern because RAG models rely on external knowledge sources, which may be biased or outdated [S4]. This can lead to inaccurate or incomplete information being incorporated into the generated output. Additionally, the use of retrieval mechanisms can perpetuate existing biases if the training data used to develop these mechanisms contains biases [S1].
+
+The potential for misinformation in generated outputs is also a concern because RAG models can &quot;hallucinate&quot; or produce inaccurate information without being aware of it [S4]. This can be particularly problematic in high-stakes applications such as healthcare, where accurate and reliable information is critical.
+
+To mitigate these risks, researchers have proposed various strategies, including the use of diverse and representative training data, the incorporation of multiple knowledge sources, and the development of evaluation frameworks to detect bias and inaccuracies [S3]. However, more research is needed to fully address these challenges.
+
+Sources used:
+- [S1] A Survey on Knowledge-Oriented Retrieval-Augmented Generation
+- [S4] A survey on retrieval-augmentation generation (RAG) models for healthcare applications
+- [S3] Retrieval-Augmented Generation for Large Language Models: A Survey
+
+---
+Log:
+- planner: qwen3:14b proposed 5 step(s)
+- validate_plan: valid=True (plan passed all checks)
+- research: cleared vector store for a fresh run
+- research: semantic_scholar failed on &#x27;How does retrieval-augmented generation integrate &#x27;: Client error &#x27;429 &#x27; for url &#x27;https://api.semanticscholar.org/graph/v1/paper/search?query=retrieval-augmented+generation+integrate+external+knowledge+sources+during+generation+process&amp;limit=3&amp;fields=title%2Cabstract%2Curl%2CexternalIds%2Cvenue%2Cyear%2CcitationCount&#x27;
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+- research: semantic_scholar failed on &#x27;In what types of tasks or applications is retrieva&#x27;: Client error &#x27;429 &#x27; for url &#x27;https://api.semanticscholar.org/graph/v1/paper/search?query=types+tasks+applications+retrieval-augmented+generation+particularly+effective&amp;limit=3&amp;fields=title%2Cabstract%2Curl%2CexternalIds%2Cvenue%2Cyear%2CcitationCount&#x27;
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+- research: 39 raw results -&gt; 22 after dedup
+- research: embedded 19 abstracts into ChromaDB
+- summarise: grounded &#x27;What is the definition of retrieval-augmented gene&#x27; on 3 passages
+- summarise: grounded &#x27;What are the primary advantages of using retrieval&#x27; on 3 passages
+- summarise: grounded &#x27;How does retrieval-augmented generation integrate &#x27; on 3 passages
+- summarise: grounded &#x27;In what types of tasks or applications is retrieva&#x27; on 3 passages
+- summarise: grounded &#x27;What are the main challenges or limitations associ&#x27; on 3 passages
+- synthesis: llama3.1:8b wrote a 4510-char report
+- verification: &#x27;What is the definition of retrieval-augmented gene&#x27; -&gt; VERDICT: SUPPORTED - Every claim in the answer is directly b
+- verification: &#x27;What are the primary advantages of using retrieval&#x27; -&gt; VERDICT: SUPPORTED - All claims in the answer (enhanced fact
+- verification: &#x27;How does retrieval-augmented generation integrate &#x27; -&gt; VERDICT: SUPPORTED - Every claim in the answer is explicitly
+- verification: &#x27;In what types of tasks or applications is retrieva&#x27; -&gt; VERDICT: SUPPORTED - All claims in the answer are explicitly
+- verification: &#x27;What are the main challenges or limitations associ&#x27; -&gt; VERDICT: PARTIAL - The answer correctly identifies retrieval
+- gap_analysis: &#x27;What is the definition of retrieval-augmented gene&#x27; -&gt; 1 gap(s)
+- gap_analysis: &#x27;What are the primary advantages of using retrieval&#x27; -&gt; 1 gap(s)
+- gap_analysis: &#x27;How does retrieval-augmented generation integrate &#x27; -&gt; 1 gap(s)
+- gap_analysis: &#x27;In what types of tasks or applications is retrieva&#x27; -&gt; 1 gap(s)
+- gap_analysis: &#x27;What are the main challenges or limitations associ&#x27; -&gt; 0 gap(s)
+- gap_analysis: grounding overlap: 5 distinct paper(s) across 15 grounding slot(s)
+- confidence: 0.20 (4 gap(s) over 5 step(s))
+- replan: attempt 1/3 (confidence 0.20, 4 gap(s))
+- planner: qwen3:14b proposed 6 step(s)
+- validate_plan: valid=True (plan passed all checks)
+- research: cleared vector store for a fresh run
+- research: semantic_scholar failed on &#x27;What specific performance improvements does retrie&#x27;: Client error &#x27;429 &#x27; for url &#x27;https://api.semanticscholar.org/graph/v1/paper/search?query=specific+performance+improvements+retrieval-augmented+generation+offer+tasks+requiring+up-to-date+information+as+demonstrated+studies+S4+S5&amp;limit=3&amp;fields=title%2Cabstract%2Curl%2CexternalIds%2Cvenue%2Cyear%2CcitationCount&#x27;
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+- research: semantic_scholar failed on &#x27;What unique applications in natural language proce&#x27;: Client error &#x27;429 &#x27; for url &#x27;https://api.semanticscholar.org/graph/v1/paper/search?query=unique+applications+natural+language+processing+highlighted+S2+where+retrieval-augmented+generation+outperforms+traditional+methods&amp;limit=3&amp;fields=title%2Cabstract%2Curl%2CexternalIds%2Cvenue%2Cyear%2CcitationCount&#x27;
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+- research: semantic_scholar failed on &#x27;What challenges in knowledge retention and scalabi&#x27;: Client error &#x27;429 &#x27; for url &#x27;https://api.semanticscholar.org/graph/v1/paper/search?query=challenges+knowledge+retention+scalability+retrieval-augmented+generation+address+compared+purely+generative+models&amp;limit=3&amp;fields=title%2Cabstract%2Curl%2CexternalIds%2Cvenue%2Cyear%2CcitationCount&#x27;
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+- research: 42 raw results -&gt; 35 after dedup
+- research: embedded 32 abstracts into ChromaDB
+- summarise: grounded &#x27;What specific performance improvements does retrie&#x27; on 3 passages
+- summarise: grounded &#x27;How do the technical mechanisms described in S4 en&#x27; on 3 passages
+- summarise: grounded &#x27;What unique applications in natural language proce&#x27; on 3 passages
+- summarise: grounded &#x27;What challenges in knowledge retention and scalabi&#x27; on 3 passages
+- summarise: grounded &#x27;How do the architectural designs of retrieval-augm&#x27; on 3 passages
+- summarise: grounded &#x27;What empirical evidence from S2 demonstrates the e&#x27; on 3 passages
+- synthesis: llama3.1:8b wrote a 5986-char report
+- verification: &#x27;What specific performance improvements does retrie&#x27; -&gt; VERDICT: PARTIAL - The answer references studies S2 and S3 (
+- verification: &#x27;How do the technical mechanisms described in S4 en&#x27; -&gt; VERDICT: PARTIAL - The answer correctly references S4&#x27;s RAG 
+- verification: &#x27;What unique applications in natural language proce&#x27; -&gt; VERDICT: PARTIAL - The answer correctly cites biomedical inf
+- verification: &#x27;What challenges in knowledge retention and scalabi&#x27; -&gt; VERDICT: SUPPORTED - Every claim in the answer is directly b
+- verification: &#x27;How do the architectural designs of retrieval-augm&#x27; -&gt; VERDICT: PARTIAL - The answer is partially supported as the 
+- verification: &#x27;What empirical evidence from S2 demonstrates the e&#x27; -&gt; VERDICT: PARTIAL - The answer correctly notes that S2 (the s
+- gap_analysis: &#x27;What specific performance improvements does retrie&#x27; -&gt; 1 gap(s)
+- gap_analysis: &#x27;How do the technical mechanisms described in S4 en&#x27; -&gt; 2 gap(s)
+- gap_analysis: &#x27;What unique applications in natural language proce&#x27; -&gt; 1 gap(s)
+- gap_analysis: &#x27;What challenges in knowledge retention and scalabi&#x27; -&gt; 1 gap(s)
+- gap_analysis: &#x27;How do the architectural designs of retrieval-augm&#x27; -&gt; 2 gap(s)
+- gap_analysis: &#x27;What empirical evidence from S2 demonstrates the e&#x27; -&gt; 2 gap(s)
+- gap_analysis: grounding overlap: 7 distinct paper(s) across 18 grounding slot(s)
+- confidence: 0.00 (9 gap(s) over 6 step(s))
+- replan: attempt 2/3 (confidence 0.00, 9 gap(s))
+- planner: qwen3:14b proposed 6 step(s)
+- validate_plan: valid=True (plan passed all checks)
+- research: cleared vector store for a fresh run
+- research: semantic_scholar failed on &#x27;What are the core components of retrieval-augmente&#x27;: Client error &#x27;429 &#x27; for url &#x27;https://api.semanticscholar.org/graph/v1/paper/search?query=core+components+retrieval-augmented+generation+systems+they+interact+during+generation+process&amp;limit=3&amp;fields=title%2Cabstract%2Curl%2CexternalIds%2Cvenue%2Cyear%2CcitationCount&#x27;
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+- research: semantic_scholar failed on &#x27;How does retrieval-augmented generation differ fro&#x27;: Client error &#x27;429 &#x27; for url &#x27;https://api.semanticscholar.org/graph/v1/paper/search?query=retrieval-augmented+generation+differ+traditional+generative+models+terms+knowledge+sourcing+integration&amp;limit=3&amp;fields=title%2Cabstract%2Curl%2CexternalIds%2Cvenue%2Cyear%2CcitationCount&#x27;
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+- research: semantic_scholar failed on &#x27;What are the primary challenges in implementing re&#x27;: Client error &#x27;429 &#x27; for url &#x27;https://api.semanticscholar.org/graph/v1/paper/search?query=primary+challenges+implementing+retrieval-augmented+generation+systems+they+typically+mitigated&amp;limit=3&amp;fields=title%2Cabstract%2Curl%2CexternalIds%2Cvenue%2Cyear%2CcitationCount&#x27;
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+- research: 45 raw results -&gt; 27 after dedup
+- research: embedded 25 abstracts into ChromaDB
+- summarise: grounded &#x27;What are the core components of retrieval-augmente&#x27; on 3 passages
+- summarise: grounded &#x27;How does retrieval-augmented generation differ fro&#x27; on 3 passages
+- summarise: grounded &#x27;What are the key advantages of using retrieval-aug&#x27; on 3 passages
+- summarise: grounded &#x27;In which specific NLP tasks has retrieval-augmente&#x27; on 3 passages
+- summarise: grounded &#x27;What are the primary challenges in implementing re&#x27; on 3 passages
+- summarise: grounded &#x27;How do retrieval-augmented generation systems ensu&#x27; on 3 passages
+- synthesis: llama3.1:8b wrote a 5299-char report
+- verification: &#x27;What are the core components of retrieval-augmente&#x27; -&gt; VERDICT: SUPPORTED - All claims about the core components (r
+- verification: &#x27;How does retrieval-augmented generation differ fro&#x27; -&gt; VERDICT: SUPPORTED - Every claim in the answer is directly b
+- verification: &#x27;What are the key advantages of using retrieval-aug&#x27; -&gt; VERDICT: SUPPORTED - All claims in the answer are explicitly
+- verification: &#x27;In which specific NLP tasks has retrieval-augmente&#x27; -&gt; VERDICT: PARTIAL - The answer is partially supported as the 
+- verification: &#x27;What are the primary challenges in implementing re&#x27; -&gt; VERDICT: SUPPORTED - Every claim in the answer is directly b
+- verification: &#x27;How do retrieval-augmented generation systems ensu&#x27; -&gt; VERDICT: SUPPORTED - Every claim in the answer is directly b
+- gap_analysis: &#x27;What are the core components of retrieval-augmente&#x27; -&gt; 1 gap(s)
+- gap_analysis: &#x27;How does retrieval-augmented generation differ fro&#x27; -&gt; 1 gap(s)
+- gap_analysis: &#x27;What are the key advantages of using retrieval-aug&#x27; -&gt; 2 gap(s)
+- gap_analysis: &#x27;In which specific NLP tasks has retrieval-augmente&#x27; -&gt; 1 gap(s)
+- gap_analysis: &#x27;What are the primary challenges in implementing re&#x27; -&gt; 1 gap(s)
+- gap_analysis: &#x27;How do retrieval-augmented generation systems ensu&#x27; -&gt; 2 gap(s)
+- gap_analysis: grounding overlap: 7 distinct paper(s) across 18 grounding slot(s)
+- confidence: 0.00 (8 gap(s) over 6 step(s))
+- replan: attempt 3/3 (confidence 0.00, 8 gap(s))
+- planner: qwen3:14b proposed 6 step(s)
+- validate_plan: valid=True (plan passed all checks)
+- research: cleared vector store for a fresh run
+- research: semantic_scholar failed on &#x27;What are the ethical considerations associated wit&#x27;: Client error &#x27;429 &#x27; for url &#x27;https://api.semanticscholar.org/graph/v1/paper/search?query=ethical+considerations+associated+use+RAG+particularly+regarding+bias+retrieved+information+potential+misinformation+generated+outputs&amp;limit=3&amp;fields=title%2Cabstract%2Curl%2CexternalIds%2Cvenue%2Cyear%2CcitationCount&#x27;
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+- research: 46 raw results -&gt; 35 after dedup
+- research: embedded 33 abstracts into ChromaDB
+- summarise: grounded &#x27;How does retrieval-augmented generation integrate &#x27; on 3 passages
+- summarise: grounded &#x27;What specific techniques are employed in RAG syste&#x27; on 3 passages
+- summarise: grounded &#x27;In which real-world applications or domains has RA&#x27; on 3 passages
+- summarise: grounded &#x27;What are the common limitations of RAG systems in &#x27; on 3 passages
+- summarise: grounded &#x27;How do RAG systems handle the dynamic updating of &#x27; on 3 passages
+- summarise: grounded &#x27;What are the ethical considerations associated wit&#x27; on 3 passages
+- synthesis: llama3.1:8b wrote a 5731-char report
+- verification: &#x27;How does retrieval-augmented generation integrate &#x27; -&gt; VERDICT: SUPPORTED - Every claim in the answer is explicitly
+- verification: &#x27;What specific techniques are employed in RAG syste&#x27; -&gt; VERDICT: SUPPORTED - All claims in the answer are explicitly
+- verification: &#x27;In which real-world applications or domains has RA&#x27; -&gt; VERDICT: PARTIAL - The answer correctly cites RAG&#x27;s applicat
+- verification: &#x27;What are the common limitations of RAG systems in &#x27; -&gt; VERDICT: UNSUPPORTED - The answer claims RAG systems have li
+- verification: &#x27;How do RAG systems handle the dynamic updating of &#x27; -&gt; VERDICT: SUPPORTED - All claims in the answer are explicitly
+- verification: &#x27;What are the ethical considerations associated wit&#x27; -&gt; VERDICT: PARTIAL - The answer mentions bias in retrieved inf
+- gap_analysis: &#x27;How does retrieval-augmented generation integrate &#x27; -&gt; 0 gap(s)
+- gap_analysis: &#x27;What specific techniques are employed in RAG syste&#x27; -&gt; 0 gap(s)
+- gap_analysis: &#x27;In which real-world applications or domains has RA&#x27; -&gt; 1 gap(s)
+- gap_analysis: &#x27;What are the common limitations of RAG systems in &#x27; -&gt; 2 gap(s)
+- gap_analysis: &#x27;How do RAG systems handle the dynamic updating of &#x27; -&gt; 1 gap(s)
+- gap_analysis: &#x27;What are the ethical considerations associated wit&#x27; -&gt; 1 gap(s)
+- gap_analysis: grounding overlap: 6 distinct paper(s) across 18 grounding slot(s)
+- confidence: 0.17 (5 gap(s) over 6 step(s))
+- fallback: cap reached at 3 replan(s), confidence 0.17
+- xai: explained 6 question(s) from recorded provenance
+- final_synthesis: assembled a 22514-char final report
+</pre>
+</body>
+</html>

@@ -21,7 +21,7 @@
                 <a class="button" href="#"><span class="button-text">Contact Me</span></a>
                 <div class="contact-dropdown-menu">
                     <a href="https://www.linkedin.com/in/sarka-/" target="_blank">LinkedIn</a>
-                    <a href="mailto:your-email@example.com">Email</a>
+                    <a href="mailto:sp.studentmail@gmail.com">Email</a>
                 </div>
             </div>
         </a>
@@ -40,8 +40,11 @@
         <div id="project-details">
             <div class="subheader-text">Learning Outcomes</div>
             <div class="project-details-content">
-                <div class="body-text">This module develops a critical understanding of intelligent agents : software systems that perceive their environment and act autonomously to achieve their goals. Key learning outcomes include identifying and analysing different agent architectures, applying agent techniques to real-world problems involving uncertainty and risk, and deploying appropriate tools for the design and implementation of agent-based systems.</div>
-                <div class="body-text">Emphasis is placed on legal, social, ethical, and professional considerations when designing autonomous systems, alongside the practical skills required to contribute effectively as a member of a development team in a virtual professional environment.</div>
+                <div class="body-text">Across this module, I moved from understanding intelligent agents as a theoretical concept to designing, building, and critically evaluating a working multi-agent system of my own.</div>
+                <div class="body-text">In the early units, I built a foundation in agent architectures and their trade-offs: reactive and deliberative approaches, the Belief-Desire-Intention (BDI) model, and hybrid designs that combine them. I learned to see architecture choice as a decision about risk and uncertainty rather than a purely technical preference. Later units on agent communication languages such as KQML, ontologies, and speech acts showed me how independent agents can coordinate meaningfully, and also how communication becomes a security surface, for example through indirect prompt injection in modern LLM-based agents.</div>
+                <div class="body-text">The centre of the module was applying this knowledge to a real system. In the group phase, our team designed a multi-agent research assistant for academic literature, using the Tropos methodology to map requirements onto agent goals and a BDI-inspired planning loop. In the individual phase, I implemented the design, which I named MASRA (A Multi-Agent System Research Assistant) during the build, as an eight-role, nine-node system on LangGraph with fully local models via Ollama: a planner, retrieval from three academic APIs, grounded summarisation over a ChromaDB vector store, synthesis, claim-by-claim verification, gap analysis, confidence scoring, and a deterministic explainability layer.</div>
+                <div class="body-text">A defining part of my learning came from tutor feedback on the group design, which identified a contradiction between our claimed blackboard memory and the framework we chose, and a factual error about model loading. Rather than repeating these claims, I corrected them in the implementation and recorded every deviation with its reason. This taught me that critically evaluating my own design is as important a skill as producing it.</div>
+                <div class="body-text">Finally, the module shaped my professional perspective on autonomous systems: agents that act on their own need bounded autonomy, verifiable outputs, and explanations grounded in traceable evidence rather than model self-reporting. My biggest learning was a design lesson I will take forward: trustworthiness came less from adding intelligence and more from removing it where it was not needed, through deterministic checks, arithmetic confidence, provenance explanations, and a human reading real output critically. Working in a virtual team, coordinating roles, and responding constructively to critical feedback strengthened the collaborative skills that agent development demands in practice.</div>
             </div>
         </div>
 

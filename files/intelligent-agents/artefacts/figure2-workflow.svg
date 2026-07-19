@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1150" font-family="Helvetica, Arial, sans-serif">
+  <!-- Figure 2: the agent workflow exactly as wired in build_core_graph
+       (masra/graph.py), including the conditional edge after Confidence
+       and the capped replan loop with its graceful fallback. -->
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+    <marker id="arrRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#b91c1c"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="1150" fill="#ffffff"/>
+
+  <!-- START -->
+  <circle cx="450" cy="40" r="14" fill="#0f172a"/>
+  <text x="475" y="45" font-size="13" fill="#0f172a">START: research goal</text>
+  <line x1="450" y1="54" x2="450" y2="86" stroke="#334155" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- pipeline boxes -->
+  <g font-size="14" text-anchor="middle">
+    <rect x="330" y="86" width="240" height="52" rx="7" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="450" y="108" font-weight="bold" fill="#1e3a8a">Planner (qwen3:14b)</text>
+    <text x="450" y="127" font-size="12.5" fill="#1e3a8a">goal to 2-6 ordered sub-questions</text>
+
+    <rect x="330" y="168" width="240" height="52" rx="7" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>
+    <text x="450" y="190" font-weight="bold" fill="#14532d">Plan validation gate</text>
+    <text x="450" y="209" font-size="12.5" fill="#14532d">deterministic shape checks, no LLM</text>
+
+    <rect x="330" y="250" width="240" height="52" rx="7" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+    <text x="450" y="272" font-weight="bold" fill="#78350f">Research</text>
+    <text x="450" y="291" font-size="12.5" fill="#78350f">3 APIs, dedup, credibility + relevance</text>
+
+    <rect x="330" y="332" width="240" height="52" rx="7" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="450" y="354" font-weight="bold" fill="#1e3a8a">Summarise (llama3.1:8b)</text>
+    <text x="450" y="373" font-size="12.5" fill="#1e3a8a">grounded answer per sub-question</text>
+
+    <rect x="330" y="414" width="240" height="52" rx="7" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="450" y="436" font-weight="bold" fill="#1e3a8a">Synthesis (llama3.1:8b)</text>
+    <text x="450" y="455" font-size="12.5" fill="#1e3a8a">one report, [S#] citations kept</text>
+
+    <rect x="330" y="496" width="240" height="52" rx="7" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="450" y="518" font-weight="bold" fill="#1e3a8a">Verification (qwen3:14b)</text>
+    <text x="450" y="537" font-size="12.5" fill="#1e3a8a">entailment vs re-fetched passages</text>
+
+    <rect x="330" y="578" width="240" height="52" rx="7" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>
+    <text x="450" y="600" font-weight="bold" fill="#14532d">Gap Analysis</text>
+    <text x="450" y="619" font-size="12.5" fill="#14532d">thin evidence, corroboration, citations</text>
+
+    <rect x="330" y="660" width="240" height="52" rx="7" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>
+    <text x="450" y="682" font-weight="bold" fill="#14532d">Confidence</text>
+    <text x="450" y="701" font-size="12.5" fill="#14532d">1 - gaps/steps, floored at 0</text>
+  </g>
+
+  <!-- pipeline arrows -->
+  <g stroke="#334155" stroke-width="1.5">
+    <line x1="450" y1="138" x2="450" y2="168" marker-end="url(#arr)"/>
+    <line x1="450" y1="220" x2="450" y2="250" marker-end="url(#arr)"/>
+    <line x1="450" y1="302" x2="450" y2="332" marker-end="url(#arr)"/>
+    <line x1="450" y1="384" x2="450" y2="414" marker-end="url(#arr)"/>
+    <line x1="450" y1="466" x2="450" y2="496" marker-end="url(#arr)"/>
+    <line x1="450" y1="548" x2="450" y2="578" marker-end="url(#arr)"/>
+    <line x1="450" y1="630" x2="450" y2="660" marker-end="url(#arr)"/>
+    <line x1="450" y1="712" x2="450" y2="748" marker-end="url(#arr)"/>
+  </g>
+  <text x="580" y="242" font-size="11.5" fill="#475569">invalid plan does not kill the run:</text>
+  <text x="580" y="257" font-size="11.5" fill="#475569">Research falls back to the raw query</text>
+
+  <!-- decision diamond -->
+  <polygon points="450,748 640,810 450,872 260,810" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <text x="450" y="798" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#0f172a">replan?</text>
+  <text x="450" y="817" text-anchor="middle" font-size="12" fill="#334155">confidence &lt; 0.5</text>
+  <text x="450" y="833" text-anchor="middle" font-size="12" fill="#334155">OR any CRITICAL gap</text>
+
+  <!-- accept branch (left down) -->
+  <line x1="260" y1="810" x2="160" y2="810" stroke="#334155" stroke-width="1.5"/>
+  <line x1="160" y1="810" x2="160" y2="900" stroke="#334155" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="172" y="800" font-size="12.5" fill="#15803d" font-weight="bold">no: accept</text>
+  <rect x="70" y="900" width="180" height="48" rx="7" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>
+  <text x="160" y="921" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#14532d">Accept</text>
+  <text x="160" y="939" text-anchor="middle" font-size="12" fill="#14532d">loop ends normally</text>
+
+  <!-- replan branch (right, loop back up) -->
+  <line x1="640" y1="810" x2="760" y2="810" stroke="#b91c1c" stroke-width="1.5" marker-end="url(#arrRed)"/>
+  <text x="648" y="800" font-size="12.5" fill="#b91c1c" font-weight="bold">yes, count &lt; cap</text>
+  <rect x="760" y="786" width="120" height="48" rx="7" fill="#fee2e2" stroke="#b91c1c" stroke-width="1.5"/>
+  <text x="820" y="807" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#7f1d1d">Replan</text>
+  <text x="820" y="825" text-anchor="middle" font-size="12" fill="#7f1d1d">count += 1</text>
+  <path d="M 820 786 L 820 112 L 570 112" fill="none" stroke="#b91c1c" stroke-width="1.5" stroke-dasharray="7 5" marker-end="url(#arrRed)"/>
+  <text x="838" y="450" font-size="12" fill="#b91c1c" transform="rotate(90 838 450)" text-anchor="middle">replan loop: previous gaps folded into the Planner prompt (source labels stripped)</text>
+
+  <!-- fallback branch (straight down) -->
+  <line x1="450" y1="872" x2="450" y2="900" stroke="#334155" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="462" y="892" font-size="12.5" fill="#b45309" font-weight="bold">yes, cap reached</text>
+  <rect x="340" y="900" width="220" height="48" rx="7" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+  <text x="450" y="921" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#78350f">Fallback</text>
+  <text x="450" y="939" text-anchor="middle" font-size="12" fill="#78350f">LOW-CONFIDENCE banner on report</text>
+
+  <!-- both to XAI -->
+  <line x1="160" y1="948" x2="160" y2="1000" stroke="#334155" stroke-width="1.5"/>
+  <line x1="160" y1="1000" x2="330" y2="1000" stroke="#334155" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="450" y1="948" x2="450" y2="976" stroke="#334155" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <g font-size="14" text-anchor="middle">
+    <rect x="330" y="976" width="240" height="52" rx="7" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>
+    <text x="450" y="998" font-weight="bold" fill="#14532d">XAI</text>
+    <text x="450" y="1017" font-size="12.5" fill="#14532d">provenance per question, no model call</text>
+
+    <rect x="330" y="1058" width="240" height="52" rx="7" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>
+    <text x="450" y="1080" font-weight="bold" fill="#14532d">Final Synthesis</text>
+    <text x="450" y="1099" font-size="12.5" fill="#14532d">assembles the final artefact</text>
+  </g>
+  <line x1="450" y1="1028" x2="450" y2="1058" stroke="#334155" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="592" y="1004" font-size="11.5" fill="#475569">both paths are explained:</text>
+  <text x="592" y="1019" font-size="11.5" fill="#475569">a capped run gets XAI too</text>
+
+  <!-- END -->
+  <circle cx="450" cy="1136" r="11" fill="none" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="450" cy="1136" r="6" fill="#0f172a"/>
+  <line x1="450" y1="1110" x2="450" y2="1123" stroke="#334155" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="475" y="1141" font-size="13" fill="#0f172a">END: final_report in state</text>
+
+  <!-- safeguards note -->
+  <rect x="40" y="86" width="230" height="190" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="1.2" stroke-dasharray="6 4"/>
+  <text x="55" y="112" font-size="13.5" font-weight="bold" fill="#0f172a">Loop safeguards (all real,</text>
+  <text x="55" y="130" font-size="13.5" font-weight="bold" fill="#0f172a">all tested)</text>
+  <text x="55" y="155" font-size="12" fill="#334155">1. capped replan counter</text>
+  <text x="68" y="171" font-size="12" fill="#334155">(max_replans, default 3)</text>
+  <text x="55" y="193" font-size="12" fill="#334155">2. hard recursion limit (50)</text>
+  <text x="68" y="209" font-size="12" fill="#334155">at the LangGraph level</text>
+  <text x="55" y="231" font-size="12" fill="#334155">3. bounded model calls:</text>
+  <text x="68" y="247" font-size="12" fill="#334155">4096-token cap + 300s</text>
+  <text x="68" y="263" font-size="12" fill="#334155">stream read timeout</text>
+</svg>
